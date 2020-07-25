@@ -9,9 +9,11 @@
     "lint": "eslint ./components/** ./pages/** -c .eslintrc.json --fix --ext js,jsx"
   },
   "dependencies": {
+    "framer-motion": "^2.1.2",
     "next": "9.4.4",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "sass": "^1.26.10"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
