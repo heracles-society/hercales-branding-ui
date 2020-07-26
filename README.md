@@ -1,5 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/39a40ba2-ae4b-414f-b3b3-8792b7a0741c/deploy-status)](https://app.netlify.com/sites/heracles-branding/deploys)
+
 ## Getting Started
 
 First, run the development server:
