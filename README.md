@@ -25,6 +25,6 @@ If Push request gets merged into `main` branch, then automatically build gets tr
 
 ## HERACLES OWNER
 
-[https://github.com/Kumar-Ankur](Avik Sarkar)
-[https://github.com/Avik32223](Kumar Ankur)
-[https://github.com/manigupta50](Manish Gupta)
+- [Avik Sarkar](https://github.com/Avik32223)
+- [Kumar Ankur](https://github.com/Kumar-Ankur)
+- [Manish Gupta](https://github.com/manigupta50)
