@@ -79,9 +79,9 @@ export default function Home() {
         </main>
         <footer className="site-footer">
           <div className="wrapper">
-            <div></div>
-            <div></div>
-            <div></div>
+            <div className="logo">Manish</div>
+            <div className="feature"></div>
+            <div className="contact"></div>
           </div>
         </footer>
       </div>
