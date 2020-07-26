@@ -50,7 +50,7 @@ export default function Home() {
                 <p>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, error! Explicabo autem saepe
                   doloribus eum laborum dolores quasi ab recusandae incidunt neque suscipit necessitatibus, consequuntur
-                  accusamus nemo, eligendi reprehenderit ut?
+                  accusamus nemo, eligendi repreenderit ut?
                 </p>
               </div>
               <div className="flex study-images">
