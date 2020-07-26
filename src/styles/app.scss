@@ -1,9 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,400;0,700;1,400;1,700&family=Vesper+Libre:wght@400;500;700;900&display=swap");
 @import "./reset.scss";
 @import "./variables.scss";
+@import "./layout.scss";
+
+@import "./pages/index.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: $default-font-size;
+}
 
 body {
   background-color: white;
   color: black;
+  font-family: $sans-serif-font;
 }
 
 .app-intro-screen {
