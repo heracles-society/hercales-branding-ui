@@ -1,0 +1,91 @@
+.page-index {
+  main {
+    position: relative;
+    .site-nav {
+      z-index: $z-index-2;
+      position: absolute;
+      top: 0;
+      right: 0;
+      ul.nav-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        padding-top: $spacing-6;
+        margin-right: $spacing-9;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        // background: white;
+        & li.nav-list-item {
+          line-height: $font-size-7;
+          display: flex;
+          // text-transform: uppercase;
+          margin: 0 $spacing-2;
+          a {
+            padding: 0 $spacing-2;
+            text-decoration: none;
+            font-size: $font-size-4;
+            color: white;
+          }
+        }
+      }
+    }
+    .section {
+      height: 75vh;
+      width: 100%;
+      &.hero-image-background {
+        height: 100vh;
+        overflow: hidden;
+        position: relative;
+        .overlay {
+          position: absolute;
+          top: 0;
+          left: 0;
+          height: 100vh;
+          width: 100%;
+          z-index: 1;
+          opacity: 0.8;
+          background: radial-gradient(at 0% 0, black, transparent 70%),
+            linear-gradient(0deg, black, transparent 100%) bottom;
+        }
+        figure.image-background {
+          & img {
+            height: 100vh;
+            width: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+      &.case-study {
+        display: flex;
+        padding: $spacing-8;
+        overflow: hidden;
+        justify-content: center;
+        align-items: center;
+
+        .study-images {
+          flex: 0 0 75%;
+          img {
+            width: 100%;
+            min-width: 500px;
+            max-width: 700px;
+            height: 500px;
+            object-fit: cover;
+          }
+        }
+
+        .study-summary {
+          align-items: flex-end;
+        }
+      }
+    }
+  }
+  footer.site-footer {
+    .wrapper {
+      height: 75vh;
+      width: 100%;
+      background-color: $black;
+      padding: $spacing-9;
+    }
+  }
+}
