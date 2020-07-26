@@ -1,6 +1,9 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## HERACLES BRANDING USER INTERFACE
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/39a40ba2-ae4b-414f-b3b3-8792b7a0741c/deploy-status)](https://app.netlify.com/sites/heracles-branding/deploys)
+
+This is the Heracles branding user interface where user can see all the information regarding `HERACLES`.
+If want to run this application locally, follow below guide lines.
 
 ## Getting Started
 
@@ -16,17 +19,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-## Learn More
+## Continuous deployment on Netlify
 
-To learn more about Next.js, take a look at the following resources:
+If Push request gets merged into `main` branch, then automatically build gets triggered to `Netlify` and pushed the build to `heracles server`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## HERACLES OWNER
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[https://github.com/Kumar-Ankur](Avik Sarkar)
+[https://github.com/Avik32223](Kumar Ankur)
+[https://github.com/manigupta50](Manish Gupta)
