@@ -1,0 +1,15 @@
+.main {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #f8f5f5;
+
+  .section {
+    margin: 5rem;
+    border: 1px solid black;
+
+    h1 {
+      text-align: center;
+    }
+  }
+}
