@@ -1,0 +1,117 @@
+.wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: $lightGrey;
+  overflow: hidden;
+
+  .contact {
+    width: 78vw;
+    max-width: 1220px;
+    margin: 0 auto;
+    height: 100%;
+    margin-top: 4rem;
+
+    .heading {
+      margin-bottom: 4rem;
+
+      .title {
+        font: normal calc(2.3rem + 1vw) / 1.2 $sans-serif-font;
+        color: $black;
+
+        .block {
+          display: inline-block;
+
+          .lineContainer {
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+            line-height: 1;
+            width: 100%;
+            display: block;
+            font-weight: 600;
+
+            .fontStyle {
+              vertical-align: inherit;
+              font-size: 1.2rem;
+              letter-spacing: 1px;
+            }
+          }
+        }
+      }
+    }
+
+    .contactContainer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin-top: 3rem;
+
+      .formContainer {
+        width: 65.574%;
+
+        .formGen {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          align-items: flex-start;
+          width: 100%;
+
+          .inputType {
+            width: 47.3%;
+          }
+
+          .main {
+            position: relative;
+            width: 100%;
+
+            .sub-main {
+              margin: 22px;
+              float: right;
+            }
+          }
+        }
+      }
+
+      .info {
+        width: 22.541%;
+        padding-top: 1.6rem;
+
+        .heading {
+          color: #101010;
+          text-rendering: optimizeLegibility;
+          box-sizing: border-box;
+          outline: 0;
+          transform-origin: 0 0;
+          position: relative;
+          margin: 0;
+          vertical-align: inherit;
+        }
+        .listStyle {
+          font-size: 0.9rem;
+          color: $grey;
+          margin-top: 1rem;
+          cursor: pointer;
+          line-height: 1.5rem;
+        }
+      }
+    }
+  }
+}
+
+.MuiFormLabel-root.Mui-focused,
+.MuiRadio-colorSecondary.Mui-checked {
+  color: $primary !important;
+}
+
+.MuiInput-underline:after {
+  border-bottom: 2px solid $primary !important;
+}
+
+.MuiInputBase-input {
+  font-family: $sans-serif-font !important;
+}

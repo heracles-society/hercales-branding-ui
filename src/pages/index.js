@@ -16,7 +16,7 @@ export default function Home() {
                 </Link>
               </li>
               <li className="nav-list-item">
-                <Link href="/about-us">
+                <Link href="/contact-us">
                   <a>Contact us</a>
                 </Link>
               </li>
