@@ -1,6 +1,9 @@
 .page-index {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
   main {
-    position: relative;
+    // position: relative;
     .site-nav {
       z-index: $z-index-2;
       position: absolute;
@@ -33,54 +36,114 @@
     .section {
       height: 75vh;
       width: 100%;
+      margin-top: $spacing-9;
       &.hero-image-background {
-        height: 100vh;
-        overflow: hidden;
         position: relative;
-        .overlay {
+        height: calc(100vh + 15vw);
+        margin-top: 0;
+        padding-top: 15rem;
+        overflow: hidden;
+        .image-background-container,
+        .overlay,
+        .image-background {
           position: absolute;
           top: 0;
           left: 0;
-          height: 100vh;
+          height: 100%;
           width: 100%;
-          z-index: 1;
-          opacity: 0.8;
-          background: radial-gradient(at 0% 0, black, transparent 70%),
-            linear-gradient(0deg, black, transparent 100%) bottom;
         }
-        figure.image-background {
-          & img {
-            height: 100vh;
+
+        .heading {
+          position: relative;
+          z-index: 2;
+          height: 100%;
+          width: 75vw;
+          margin: 0 auto;
+          color: $white;
+
+          h1 {
+            font-size: $font-size-10;
+            font-family: $serif-font;
+            font-weight: bold;
+          }
+          p,
+          a {
+            font-size: $font-size-4;
+            line-height: $font-size-7;
+            margin: $spacing-4 $spacing-5 0 0;
+            max-width: $spacing-13;
+          }
+
+          p {
             width: 100%;
-            object-fit: cover;
+          }
+
+          a {
+            display: inline-block;
+            color: $primary;
+            text-decoration: none;
+          }
+        }
+
+        .image-background-container {
+          .overlay {
+            z-index: 1;
+            opacity: 0.8;
+            background: radial-gradient(at 0% 0, black, transparent 70%),
+              linear-gradient(0deg, black, transparent 100%) bottom;
+          }
+          figure.image-background {
+            height: 100%;
+            width: 100%;
+            & img {
+              height: 100%;
+              width: 100%;
+              object-fit: cover;
+              transform-origin: 50% 50%;
+              transition-duration: 150ms;
+              transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+            }
           }
         }
       }
       &.case-study {
         display: flex;
-        padding: $spacing-8;
         overflow: hidden;
         justify-content: center;
-        align-items: center;
+        align-items: stretch;
+        position: relative;
 
         .study-images {
-          flex: 0 0 75%;
+          max-width: 75%;
           img {
             width: 100%;
             min-width: 500px;
-            max-width: 700px;
-            height: 500px;
+            max-width: 100%;
+            height: 100%;
+            max-height: 100%;
             object-fit: cover;
           }
         }
 
         .study-summary {
+          top: 50%;
+          left: 50%;
+          height: 50%;
+          width: $spacing-12;
+          border-radius: $spacing-0;
+          transform: translate(25%, -50%);
+          background: $white;
+          position: absolute;
+          flex: 0 0 25%;
           align-items: flex-end;
+          padding: $spacing-5;
+          font-size: $font-size-5;
         }
       }
     }
   }
   footer.site-footer {
+    margin-top: $spacing-9;
     .wrapper {
       height: 75vh;
       width: 100%;

@@ -43,10 +43,11 @@ function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false)
   const [initialRender, setInitialRender] = useState(true)
   const [canScroll, setCanScroll] = useState()
-
   useEffect(() => {
     const timeout = setTimeout(() => setInitialRender(false), 2000)
-    return () => clearTimeout(timeout)
+    return () => {
+      clearTimeout(timeout)
+    }
   }, [])
 
   const clearScroll = () => setCanScroll(true)
@@ -81,7 +82,9 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <AnimatePresence>{loading === false && <Component key="component" {...pageProps} />}</AnimatePresence>
+      <div className="app">
+        <AnimatePresence>{loading === false && <Component key="component" {...pageProps} />}</AnimatePresence>
+      </div>
       <AnimatePresence exitBeforeEnter onExitComplete={clearScroll}>
         {loading && (
           <motion.div
