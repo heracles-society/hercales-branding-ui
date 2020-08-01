@@ -1,102 +1,104 @@
-.wrapper {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100vw;
-  height: 100vh;
-  background: $lightGrey;
-  overflow: hidden;
+.contactus {
+  .wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    background: $lightGrey;
+    overflow: hidden;
 
-  .contact {
-    width: 78vw;
-    max-width: 1220px;
-    margin: 0 auto;
-    height: 100%;
-    margin-top: 4rem;
+    .contact {
+      width: 78vw;
+      max-width: 1220px;
+      margin: 0 auto;
+      height: 100%;
+      margin-top: $spacing-7;
 
-    .heading {
-      margin-bottom: 4rem;
+      .heading {
+        margin-bottom: $spacing-7;
 
-      .title {
-        font: normal calc(2.3rem + 1vw) / 1.2 $sans-serif-font;
-        color: $black;
+        .title {
+          font-size: $font-size-7;
+          color: $black;
 
-        .block {
-          display: inline-block;
+          .block {
+            display: inline-block;
 
-          .lineContainer {
-            overflow: hidden;
-            margin-bottom: 0.5rem;
-            line-height: 1;
-            width: 100%;
-            display: block;
-            font-weight: 600;
+            .lineContainer {
+              overflow: hidden;
+              margin-bottom: $spacing-2;
+              line-height: 1;
+              width: 100%;
+              display: block;
+              font-weight: 600;
 
-            .fontStyle {
-              vertical-align: inherit;
-              font-size: 1.2rem;
-              letter-spacing: 1px;
+              .fontStyle {
+                vertical-align: inherit;
+                font-size: $font-size-4;
+                letter-spacing: 1px;
+              }
             }
           }
         }
       }
-    }
 
-    .contactContainer {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      margin-top: 3rem;
+      .contactContainer {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: $spacing-6;
 
-      .formContainer {
-        width: 65.574%;
+        .formContainer {
+          width: 65.574%;
 
-        .formGen {
-          display: flex;
-          flex-direction: row;
-          flex-wrap: wrap;
-          justify-content: space-between;
-          align-items: flex-start;
-          width: 100%;
+          .formGen {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
 
-          .inputType {
-            width: 47.3%;
+            .inputType {
+              width: 47.3%;
+            }
+
+            .main {
+              position: relative;
+              width: 100%;
+
+              .sub-main {
+                margin: $spacing-4;
+                float: right;
+              }
+            }
           }
+        }
 
-          .main {
+        .info {
+          width: 22.541%;
+          padding-top: $spacing-4;
+
+          .heading {
+            color: #101010;
+            text-rendering: optimizeLegibility;
+            box-sizing: border-box;
+            outline: 0;
+            transform-origin: 0 0;
             position: relative;
-            width: 100%;
-
-            .sub-main {
-              margin: 22px;
-              float: right;
-            }
+            margin: 0;
+            vertical-align: inherit;
           }
-        }
-      }
-
-      .info {
-        width: 22.541%;
-        padding-top: 1.6rem;
-
-        .heading {
-          color: #101010;
-          text-rendering: optimizeLegibility;
-          box-sizing: border-box;
-          outline: 0;
-          transform-origin: 0 0;
-          position: relative;
-          margin: 0;
-          vertical-align: inherit;
-        }
-        .listStyle {
-          font-size: 0.9rem;
-          color: $grey;
-          margin-top: 1rem;
-          cursor: pointer;
-          line-height: 1.5rem;
+          .listStyle {
+            font-size: $font-size-1;
+            color: $grey;
+            margin-top: $spacing-3;
+            cursor: pointer;
+            line-height: $spacing-4;
+          }
         }
       }
     }
