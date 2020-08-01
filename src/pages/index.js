@@ -103,6 +103,53 @@ export default function Home() {
               </figure>
             </div>
           </section>
+          <section className="section for-home-owners">
+            <header className="header-wrapper">
+              <h2>For Home owners</h2>
+              <p>Lorem ipsum dolor sit amet consectetur</p>
+            </header>
+            <article className="article-wrapper">
+              <div className="article-background"></div>
+              <h3>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Harum reiciendis laudantium.</h3>
+              <div className="details">
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, culpa blanditiis. Ipsum vero
+                  dolorum soluta?
+                </p>
+                <Link href="/about-us">
+                  <button>Contact us</button>
+                </Link>
+              </div>
+            </article>
+            <div className="image-wrapper">
+              <picture className="image-background">
+                <ProgressiveImage
+                  delay={4000}
+                  src="images/processed-main-bg-6_hmddja_c_scale,w_1400.jpg"
+                  srcSetData={{
+                    srcSet: `images/processed-main-bg-6_hmddja_c_scale,w_300.jpg 300w,
+                    images/processed-main-bg-6_hmddja_c_scale,w_697.jpg 697w,
+                    images/processed-main-bg-6_hmddja_c_scale,w_959.jpg 959w,
+                    images/processed-main-bg-6_hmddja_c_scale,w_1222.jpg 1222w,
+                    images/processed-main-bg-6_hmddja_c_scale,w_1380.jpg 1380w`,
+                    sizes: "(max-width: 1400px) 100vw, 1400px",
+                  }}
+                  placeholder="images/processed-main-bg-6_hmddja_c_scale,w_300.jpg"
+                >
+                  {(src, _loading, srcSetData) => (
+                    <motion.img
+                      src={src}
+                      srcSet={srcSetData.srcSet}
+                      sizes={srcSetData.sizes}
+                      alt="an image"
+                      initial={{ scale: 1 }}
+                      style={{ scale: scaleImage }}
+                    />
+                  )}
+                </ProgressiveImage>
+              </picture>
+            </div>
+          </section>
         </main>
         <footer className="site-footer">
           <div className="wrapper">
