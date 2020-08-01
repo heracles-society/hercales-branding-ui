@@ -3,7 +3,6 @@
   width: 100vw;
   overflow: hidden;
   main {
-    // position: relative;
     .site-nav {
       z-index: $z-index-2;
       position: absolute;
@@ -18,11 +17,9 @@
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
-        // background: white;
         & li.nav-list-item {
           line-height: $font-size-7;
           display: flex;
-          // text-transform: uppercase;
           margin: 0 $spacing-2;
           a {
             padding: 0 $spacing-2;
@@ -34,9 +31,8 @@
       }
     }
     .section {
-      height: 75vh;
+      min-height: 100vh;
       width: 100%;
-      margin-top: $spacing-9;
       &.hero-image-background {
         position: relative;
         height: calc(100vh + 15vw);
@@ -58,12 +54,13 @@
           z-index: 2;
           height: 100%;
           width: 75vw;
-          margin: 0 auto;
+          margin-left: $spacing-9;
           color: $white;
+          overflow: hidden;
 
           h1 {
-            font-size: $font-size-10;
-            font-family: $serif-font;
+            font-size: $font-size-11;
+            font-family: $fortescue-font;
             font-weight: bold;
           }
           p,
@@ -106,38 +103,113 @@
           }
         }
       }
-      &.case-study {
-        display: flex;
-        overflow: hidden;
-        justify-content: center;
-        align-items: stretch;
+      &.for-builders {
+        padding-top: $spacing-9;
         position: relative;
-
-        .study-images {
-          max-width: 75%;
-          img {
-            width: 100%;
-            min-width: 500px;
-            max-width: 100%;
-            height: 100%;
-            max-height: 100%;
-            object-fit: cover;
+        margin-bottom: $spacing-11;
+        .header-wrapper {
+          margin-left: $spacing-9;
+          margin-bottom: $spacing-8;
+          h2 {
+            line-height: $font-size-8;
+            font-size: $font-size-7;
+          }
+          p {
+            line-height: $font-size-5;
+            font-size: $font-size-4;
           }
         }
+        .article-wrapper {
+          mix-blend-mode: exclusion;
+          h3 {
+            margin-left: 43%;
+            font-size: $font-size-9;
+            font-style: italic;
+            margin-bottom: $spacing-8;
+            width: 50%;
+          }
+          .details {
+            width: 33%;
+            margin-left: 50%;
+            p {
+              font-size: $font-size-5;
+              font-weight: lighter;
+              margin-bottom: $spacing-7;
+            }
+            button {
+              padding: $spacing-1 $spacing-6;
+              font-size: $font-size-4;
+              line-height: $font-size-7;
+              border: none;
+              background: none;
+              color: inherit;
+              vertical-align: middle;
+              position: relative;
+              z-index: 1;
+              border-radius: 5px;
+              border: 1px solid;
+              border-color: $primary;
+              background: #fff;
+              color: $primary;
+              overflow: hidden;
+              -webkit-transition: color 0.3s;
+              transition: color 0.3s;
+              cursor: pointer;
+              &::after,
+              &::before {
+                content: "";
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                bottom: 100%;
+                left: 0;
+                z-index: -1;
+                -webkit-transition: -webkit-transform 0.3s;
+                transition: transform 0.3s;
+                -webkit-transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+                transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+              }
 
-        .study-summary {
-          top: 50%;
-          left: 50%;
-          height: 50%;
-          width: $spacing-12;
-          border-radius: $spacing-0;
-          transform: translate(25%, -50%);
-          background: $white;
+              &::before {
+                background: darken($primary, 5);
+              }
+
+              &::after {
+                background: $primary;
+              }
+
+              &:hover {
+                color: #fff;
+                &::after,
+                &::before {
+                  -webkit-transform: translate3d(0, 100%, 0);
+                  transform: translate3d(0, 100%, 0);
+                }
+                &::after {
+                  -webkit-transition-delay: 0.175s;
+                  transition-delay: 0.175s;
+                }
+              }
+            }
+          }
+        }
+        .background-wrapper {
           position: absolute;
-          flex: 0 0 25%;
-          align-items: flex-end;
-          padding: $spacing-5;
-          font-size: $font-size-5;
+          top: $spacing-11;
+          left: 0;
+          z-index: -1;
+          width: 35%;
+          height: 90%;
+          figure {
+            height: 100%;
+            width: 100%;
+            img {
+              height: 100%;
+              width: 100%;
+              object-fit: cover;
+              object-position: 50% 50%;
+            }
+          }
         }
       }
     }
