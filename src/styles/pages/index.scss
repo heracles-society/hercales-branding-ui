@@ -145,7 +145,7 @@
             background: radial-gradient(at 0% 0, black, transparent 70%),
               linear-gradient(0deg, black, transparent 100%) bottom;
           }
-          figure.image-background {
+          .image-background {
             height: 100%;
             width: 100%;
             & img {
@@ -201,15 +201,14 @@
           z-index: -1;
           width: 35%;
           height: 90%;
-          figure {
+          picture,
+          img {
             height: 100%;
             width: 100%;
-            img {
-              height: 100%;
-              width: 100%;
-              object-fit: cover;
-              object-position: 50% 50%;
-            }
+          }
+          img {
+            object-fit: cover;
+            object-position: 50% 50%;
           }
         }
       }
@@ -291,10 +290,14 @@
           height: 80%;
           width: 30%;
           z-index: -1;
-          figure,
+          picture,
           img {
             height: 100%;
             width: 100%;
+          }
+          img {
+            object-fit: cover;
+            object-position: left;
           }
         }
       }

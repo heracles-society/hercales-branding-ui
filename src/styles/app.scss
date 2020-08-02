@@ -1,14 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,100;0,400;0,700;1,400;1,700&family=Vesper+Libre:wght@400;500;700;900&display=swap");
 @font-face {
   font-family: "fortescue";
-  src: url("../../public/fonts/Fortescue/FortescueProMedian-Bold.ttf");
+  src: url("./fonts/Fortescue/FortescueProMedian-Bold.ttf");
   font-weight: bold;
+  font-display: swap;
 }
 @font-face {
   font-family: "fortescue";
-  src: url("../../public/fonts/Fortescue/FortescueProMedian-LightItalic.ttf");
+  src: url("./fonts/Fortescue/FortescueProMedian-LightItalic.ttf");
   font-weight: lighter;
   font-style: italic;
+  font-display: swap;
 }
 @import "./reset.scss";
 @import "./variables.scss";
