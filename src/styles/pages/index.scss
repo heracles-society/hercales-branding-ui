@@ -159,6 +159,7 @@
           }
         }
       }
+
       &.for-builders {
         padding-top: $spacing-9;
         position: relative;
@@ -297,12 +298,90 @@
           }
         }
       }
+
+      &.for-renters {
+        position: relative;
+        min-height: 100vh;
+        margin-bottom: $spacing-11;
+        .header-wrapper {
+          width: 30%;
+          margin-left: $spacing-9;
+          margin-bottom: $spacing-6;
+          h2 {
+            line-height: $font-size-8;
+            font-size: $font-size-7;
+          }
+          p {
+            line-height: $font-size-5;
+            font-size: $font-size-4;
+          }
+        }
+        .article-wrapper {
+          color: $white;
+          h3 {
+            margin: $spacing-9 auto;
+            font-size: $font-size-9;
+            font-style: italic;
+            margin-bottom: $spacing-8;
+            width: 50%;
+          }
+          .details {
+            width: 33%;
+            margin-left: 50%;
+            p {
+              font-size: $font-size-5;
+              font-weight: lighter;
+              margin-bottom: $spacing-7;
+            }
+            button {
+              margin-left: $spacing-8;
+              border-color: $black;
+              color: $black;
+              &:hover {
+                color: $red;
+              }
+              &::after {
+                background-color: $white;
+              }
+              &::before {
+                background-color: $red;
+              }
+            }
+          }
+        }
+        .image-wrapper {
+          position: absolute;
+          top: $spacing-9;
+          left: 0;
+          height: 100%;
+          width: 100%;
+          z-index: -1;
+          .scene {
+            height: 100%;
+            background: $primary;
+            path:first-child {
+              fill: $secondary;
+            }
+
+            path:nth-child(2) {
+              fill: $black;
+            }
+
+            path:nth-child(3) {
+              fill: $red;
+            }
+
+            path:nth-child(4) {
+              fill: $blue;
+            }
+          }
+        }
+      }
     }
   }
   footer.site-footer {
-    margin-top: $spacing-9;
     .wrapper {
-      height: 50vh;
+      min-height: 70vh;
       width: 100%;
       background-color: $black;
       padding: $spacing-9;
