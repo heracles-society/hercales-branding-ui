@@ -11,6 +11,11 @@ export default function Home() {
             <div className="site-logo"></div>
             <ul className="nav-list">
               <li className="nav-list-item">
+                <Link href="/pricing">
+                  <a>Pricing</a>
+                </Link>
+              </li>
+              <li className="nav-list-item">
                 <Link href="/about-us">
                   <a>About us</a>
                 </Link>
