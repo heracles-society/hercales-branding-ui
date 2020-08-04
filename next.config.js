@@ -33,4 +33,4 @@ if (process.env.NODE_ENV === "production") {
   ])
 }
 
-module.exports = withPlugins([...plugins], { target: "serverless" })
+module.exports = withPlugins([...plugins])
