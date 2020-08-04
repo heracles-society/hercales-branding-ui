@@ -32,7 +32,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>Heracles - Societies made eas</title>
+        <title>Heracles - Societies made easy</title>
       </Head>
       <AnimatePresence exitBeforeEnter>
         <div ref={appRef} className="page-index">
@@ -47,7 +47,7 @@ export default function Home() {
                   </Link>
                 </li>
                 <li className="nav-list-item">
-                  <Link href="/about-us">
+                  <Link href="/contact-us">
                     <a>Contact us</a>
                   </Link>
                 </li>
@@ -66,8 +66,19 @@ export default function Home() {
               </div>
               <div ref={overlayRef} className="image-background-container">
                 <div className="overlay"></div>
-                <picture className="image-background">
-                  <ProgressiveImage
+                <picture
+                  className="image-background"
+                  style={{ backgroundSize: "cover", background: `url(${siteHeroImage.placeholder})` }}
+                >
+                  <motion.img
+                    src={siteHeroImage.src}
+                    srcSet={siteHeroImage.srcSet}
+                    sizes="(min-width: 1024px) 1024px, 100vw"
+                    alt="an image"
+                    initial={{ scale: 1 }}
+                    style={{ scale: scaleImage }}
+                  />
+                  {/* <ProgressiveImage
                     src={siteHeroImage.src}
                     srcSetData={{
                       srcSet: siteHeroImage.srcSet,
@@ -86,7 +97,7 @@ export default function Home() {
                         />
                       </>
                     )}
-                  </ProgressiveImage>
+                  </ProgressiveImage> */}
                 </picture>
               </div>
             </section>
@@ -103,7 +114,7 @@ export default function Home() {
                     dolorum soluta! Quam quaerat soluta, minus velit itaque dolor sed aperiam, voluptatem in modi est
                     eligendi tenetur?
                   </p>
-                  <Link href="/about-us">
+                  <Link href="/for-builders">
                     <button>Contact us</button>
                   </Link>
                 </div>
@@ -144,7 +155,7 @@ export default function Home() {
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, culpa blanditiis. Ipsum vero
                     dolorum soluta?
                   </p>
-                  <Link href="/about-us">
+                  <Link href="/for-home-owners">
                     <button>Contact us</button>
                   </Link>
                 </div>
@@ -185,7 +196,7 @@ export default function Home() {
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus, culpa blanditiis. Ipsum vero
                     dolorum soluta?
                   </p>
-                  <Link href="/about-us">
+                  <Link href="/for-renters">
                     <button>Contact us</button>
                   </Link>
                 </div>
