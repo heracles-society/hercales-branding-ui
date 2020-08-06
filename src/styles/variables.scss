@@ -1,3 +1,4 @@
+$fortescue-font: "fortescue";
 $sans-serif-font: "IBM Plex Sans Condensed", sans-serif;
 $serif-font: "Vesper Libre", serif;
 
@@ -14,6 +15,7 @@ $font-size-7: 2.25rem; // 36px
 $font-size-8: 3rem; // 48px
 $font-size-9: 3.75rem; // 60px
 $font-size-10: 4.45rem; // 72px
+$font-size-11: 5.5rem; // 88px
 
 $spacing-0: 4px;
 $spacing-1: 8px;
@@ -28,7 +30,8 @@ $spacing-9: 128px;
 $spacing-10: 192px;
 $spacing-11: 256px;
 $spacing-12: 384px;
-$spacing-13: 768px;
+$spacing-13: 512px;
+$spacing-14: 768px;
 
 $z-index-0: -1;
 $z-index-1: 1;
@@ -36,6 +39,8 @@ $z-index-2: 1000;
 $z-index-3: 1010;
 
 $black: #211c21;
+$white: #ffffff;
+$grey: #f2f2f2;
 $primary: #05a8aa;
 $secondary: #f7dba7;
 $red: #e6524c;

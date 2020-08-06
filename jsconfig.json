@@ -3,7 +3,8 @@
     "moduleResolution": "node",
     "baseUrl": "./",
     "paths": {
-      "@components/*": ["./src/components/*"]
+      "@components/*": ["./src/components/*"],
+      "@images/*": ["./src/images/*"]
     }
   },
   "exclude": ["node_modules", ".next"]
