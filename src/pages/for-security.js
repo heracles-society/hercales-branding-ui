@@ -3,34 +3,33 @@ import Link from "next/link"
 import ProgressiveImage from "react-progressive-image"
 import * as constants from "../constants"
 
-const forOwnersBackgroundImage = require("@images/for-owners-image.jpg?placeholder=true&resize&format=webp")
+const forSecurityBackgroundImage = require("@images/for-security.jpeg?placeholder=true&resize&format=webp")
 
-export default function ForHomeOwnersPage() {
+export default function ForSecurityPage() {
   return (
     <motion.div>
       <Link href="/">
-        <section className="section for-home-owners">
+        <section className="section for-builders">
           <header className="header-wrapper">
-            <h2>{constants.OWNER_TITLE}</h2>
+            <h2>{constants.SECURITY_TITLE}</h2>
           </header>
           <article className="article-wrapper">
-            <div className="article-background"></div>
-            <h3>{constants.SUB_TITILE}</h3>
+            <h3>{constants.SECURITY_SUBTITLE}</h3>
             <div className="details">
-              <p>{constants.OWNER_DESCRIPTION}</p>
-              <Link href="/for-home-owners">
+              <p>{constants.SECURITY_DESC}</p>
+              <Link href="/for-builders">
                 <button>{constants.CONTACT_US}</button>
               </Link>
             </div>
           </article>
-          <div className="image-wrapper">
-            <picture className="image-background">
+          <div className="background-wrapper">
+            <picture>
               <ProgressiveImage
-                src={forOwnersBackgroundImage.src}
+                src={forSecurityBackgroundImage.src}
                 srcSetData={{
-                  srcSet: forOwnersBackgroundImage.srcSet,
+                  srcSet: forSecurityBackgroundImage.srcSet,
                 }}
-                placeholder={forOwnersBackgroundImage.placeholder}
+                placeholder={forSecurityBackgroundImage.placeholder}
               >
                 {(src, _loading, srcSetData) => (
                   <>

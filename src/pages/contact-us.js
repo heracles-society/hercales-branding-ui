@@ -6,6 +6,8 @@ import RadioGroup from "@material-ui/core/RadioGroup"
 import TextField from "@material-ui/core/TextField"
 import SendIcon from "@material-ui/icons/Send"
 
+import HeaderPage from "./header"
+
 import * as constants from "../constants.js"
 
 export default function ContactUs() {
@@ -61,6 +63,8 @@ export default function ContactUs() {
   return (
     <div className="contactus">
       <div className="wrapper">
+        <HeaderPage isHomePage={false} />
+
         <div className="contact">
           <div className="heading">
             <h2 className="title">
