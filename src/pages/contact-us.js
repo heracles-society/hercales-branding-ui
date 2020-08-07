@@ -89,7 +89,7 @@ export default function ContactUs() {
                 className="formGen"
                 id="contactUsForm"
                 name="contact-us"
-                action="thank-you"
+                action="/thank-you"
                 method="POST"
                 data-netlify="true"
               >
