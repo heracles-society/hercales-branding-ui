@@ -8,7 +8,7 @@ export const defaultTransition = {
   ease: easingValues["ease-1"],
 }
 
-export const CONTACT_US = "Contact us"
+export const CONTACT_US = "CONTACT US"
 
 // header components
 export const NAV_LIST = {
@@ -67,3 +67,54 @@ export const ADDRESS_1 =
   "Heracles India Pvt. Limited Plot 16 A & B, Oxygen Business Park, Sector - 144, Noida, Uttar Pradesh 201009, India"
 export const ADDRESS_2 =
   "Heracles India Pvt. Limited 9th Floor Mercury Block, Prestige Technology Park Sarjapura, Marathahalli - Sarjapur Outer Ring Rd, Kadabeesanahalli, Bengaluru, Karnataka 560103, India"
+// Pricing Constant
+export const PRICING_OPTION = ["Basic", "Standard", "Premium"]
+export const PRICING_COST = ["Free", "₹1000/month", "₹1500/month"]
+export const PRICING_HELP =
+  "Choose appropriate plan and enjoy Heracles benefit with lots of fetaures. Need to know more, please contact with Heracles support"
+export const PRICING_FACILITY = [
+  {
+    Basic: {
+      "User Registration (upto 50 count)": true,
+      "Administration Registration": true,
+      "Admin Web Portal": true,
+      "User Native Registration": true,
+      "Security Notification": true,
+      "Access/Complain Register": true,
+      "Bills and Payment": true,
+      Booking: true,
+      "Cancel at any time": true,
+      "First Month Free": true,
+      "SOS Service": false,
+      "Heracles Support": false,
+    },
+    Standard: {
+      "User Registration (upto 1000 count)": true,
+      "Administration Registration": true,
+      "Admin Web Portal": true,
+      "User Native Registration": true,
+      "Security Notification": true,
+      "Access/Complain Register": true,
+      "Bills and Payment": true,
+      Booking: true,
+      "Cancel at any time": true,
+      "First Month Free": true,
+      "SOS Service": false,
+      "Heracles Support": false,
+    },
+    Premium: {
+      "User Registration (Unlimited)": true,
+      "Administration Registration": true,
+      "Admin Web Portal": true,
+      "User Native Registration": true,
+      "Security Notification": true,
+      "Access/Complain Register": true,
+      "Bills and Payment": true,
+      Booking: true,
+      "Cancel at any time": true,
+      "First Month Free": true,
+      "SOS Service": true,
+      "Heracles Support": true,
+    },
+  },
+]

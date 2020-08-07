@@ -1,0 +1,87 @@
+.pricing {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  background: #d3d2d2;
+
+  .image-container {
+    position: relative;
+    width: 25%;
+    height: 100%;
+    top: 15rem;
+    background: url("../../assets/price.jpeg");
+    transform: scale(1.1);
+  }
+
+  .modal {
+    height: 60vh;
+    width: 80vw;
+    position: absolute;
+    background: #fff;
+    top: 20vh;
+    left: 20vw;
+    display: flex;
+
+    .list {
+      width: 30%;
+
+      .list-items {
+        position: relative;
+        left: 50%;
+        top: 30%;
+
+        .list-item {
+          margin-bottom: 1.5rem;
+          font-size: $font-size-6;
+          font-weight: bold;
+          cursor: pointer;
+          transition: all 0.5s ease-in-out;
+        }
+      }
+
+      .drawer {
+        margin-top: 11rem;
+        height: 2px;
+        width: 130px;
+        background: #d3d2d2;
+        position: absolute;
+        left: 11rem;
+      }
+
+      .help {
+        color: #d3d2d2;
+        margin-top: 14rem;
+        left: 2rem;
+        position: absolute;
+        width: 25%;
+        line-height: 1.5rem;
+      }
+    }
+
+    .detail {
+      width: 70%;
+      height: 80%;
+      margin-top: 12vh;
+      background: $black;
+
+      .cost {
+        color: $primary;
+        left: 10%;
+        position: relative;
+        top: 4rem;
+        font-size: 2rem;
+      }
+
+      .facility {
+        width: 40%;
+        color: white;
+        margin-bottom: 1.5rem;
+        position: relative;
+        top: 6rem;
+        left: 10%;
+        display: inline-block;
+      }
+    }
+  }
+}

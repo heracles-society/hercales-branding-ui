@@ -15,7 +15,7 @@ export default function ForHomeOwnersPage() {
           </header>
           <article className="article-wrapper">
             <div className="article-background"></div>
-            <h3>{constants.SUB_TITILE}</h3>
+            <h3>{constants.OWNER_SUBTITLE}</h3>
             <div className="details">
               <p>{constants.OWNER_DESCRIPTION}</p>
               <Link href="/for-home-owners">
