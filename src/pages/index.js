@@ -3,12 +3,12 @@ import Link from "next/link"
 import { useEffect, useRef, useState } from "react"
 import useSmoothScrollbar from "src/hooks/use-smooth-scrollbar"
 import Head from "next/head"
-import HeaderPage from "./header"
+import HeaderPage from "../components/header"
 import ForBuildersPage from "./for-builders"
 import ForHomeOwnersPage from "./for-home-owners"
 import ForSecurityPage from "./for-security"
 import ForSocietyManagerPage from "./for-society-manager"
-import FooterPage from "./footer"
+import Footer from "../components/footer"
 import * as constants from "../constants"
 
 const siteHeroImage = require("@images/site-hero-image.jpg?placeholder=true&resize&format=webp")
@@ -67,7 +67,7 @@ export default function Home() {
             <ForSecurityPage />
             <ForSocietyManagerPage />
           </main>
-          <FooterPage />
+          <Footer />
         </div>
       </AnimatePresence>
     </div>
