@@ -93,6 +93,7 @@ export default function ContactUs() {
                 method="POST"
                 data-netlify="true"
               >
+                <input type="hidden" name="form-name" value="contact-us" />
                 <TextField
                   label="First Name"
                   name="firstName"
