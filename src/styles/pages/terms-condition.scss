@@ -1,0 +1,60 @@
+.termsandcondition {
+  .wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    background: $lightGrey;
+
+    .content {
+      width: 78vw;
+      max-width: 1220px;
+      margin: 0 auto;
+      margin-top: $spacing-7;
+
+      .heading {
+        margin-top: $spacing-9;
+        margin-bottom: $spacing-7;
+
+        .title {
+          font-size: $font-size-7;
+          color: $black;
+
+          .block {
+            display: inline-block;
+
+            .lineContainer {
+              overflow: hidden;
+              margin-bottom: $spacing-2;
+              line-height: 1;
+              width: 100%;
+              display: block;
+              font-weight: 600;
+
+              .fontStyle {
+                vertical-align: inherit;
+                font-size: $font-size-4;
+                letter-spacing: 1px;
+              }
+            }
+          }
+        }
+      }
+
+      .detail {
+        width: 100%;
+
+        .title {
+          font-size: $font-size-5;
+          font-weight: 600;
+        }
+
+        .detail_content {
+          line-height: 1.8rem;
+          margin-bottom: $spacing-4;
+        }
+      }
+    }
+  }
+}
