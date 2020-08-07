@@ -1,4 +1,4 @@
-import HeaderPage from "./header"
+import HeaderPage from "../components/header"
 
 export default function TermsAndConditionPage() {
   return (

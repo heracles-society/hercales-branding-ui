@@ -1,4 +1,4 @@
-import HeaderPage from "./header"
+import HeaderPage from "../components/header"
 import * as constants from "../constants"
 
 export default function PrivacyPolicyPage() {

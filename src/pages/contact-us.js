@@ -6,7 +6,7 @@ import RadioGroup from "@material-ui/core/RadioGroup"
 import TextField from "@material-ui/core/TextField"
 import SendIcon from "@material-ui/icons/Send"
 
-import HeaderPage from "./header"
+import HeaderPage from "../components/header"
 
 import * as constants from "../constants.js"
 
@@ -30,7 +30,7 @@ export default function ContactUs() {
       message !== "" &&
       isValidEmail &&
       isValidPhone &&
-      value === "terms"
+      value === true
     if (isValid) {
       setIsSendDisabled(false)
     } else {
@@ -39,7 +39,7 @@ export default function ContactUs() {
   })
 
   const handleChange = (event) => {
-    setValue(event.target.value)
+    setValue(!!event.target.value)
   }
 
   const emailValidator = (event) => {
@@ -85,57 +85,59 @@ export default function ContactUs() {
 
           <div className="contactContainer">
             <div className="formContainer">
-              <form className="formGen" name="contact" action="POST" data-netlify="true">
+              <form
+                className="formGen"
+                id="contactUsForm"
+                name="contact-us"
+                action="thank-you"
+                method="POST"
+                data-netlify="true"
+              >
                 <TextField
-                  id="standard-basic"
                   label="First Name"
-                  name="First Name"
+                  name="firstName"
                   className="inputType"
                   style={{ marginBottom: "2rem" }}
                   onChange={(e) => setFname(e.target.value)}
                 />
                 <TextField
-                  id="standard-basic"
                   label="Last Name"
-                  name="Last Name"
+                  name="lastName"
                   className="inputType"
                   onChange={(e) => setLname(e.target.value)}
                 />
                 <TextField
-                  id="standard-basic"
                   label="Email"
                   className="inputType"
-                  name="Email"
+                  name="email"
                   style={{ marginBottom: "2rem" }}
                   onChange={(e) => emailValidator(e)}
                   helperText={!isValidEmail ? "Incorrect Email Address" : ""}
                 />
                 <TextField
-                  id="standard-basic"
                   label="Phone Number"
-                  name="Phone"
+                  name="phone"
                   className="inputType"
                   onChange={(e) => phoneValidator(e)}
                   helperText={!isValidPhone ? "Incorrect Phone Number" : ""}
                 />
                 <TextField
-                  id="standard-basic"
                   label="Message"
-                  name="Message"
+                  name="message"
                   className="inputType"
                   style={{ width: "100%", marginBottom: "2rem" }}
                   onChange={(e) => setMessage(e.target.value)}
                 />
 
                 <RadioGroup
-                  aria-label="terms"
-                  name="terms"
-                  value={value}
+                  aria-label="agree-terms"
+                  name="accepted-terms"
+                  value={Boolean(value)}
                   onChange={handleChange}
                   style={{ marginTop: "2rem" }}
                 >
                   <FormControlLabel
-                    value="terms"
+                    value={true}
                     style={{ color: "#717171", fontFamily: "IBM Plex Sans Condensed, sans-serif" }}
                     control={<Radio />}
                     label={constants.TERMS_CONDITION}
@@ -147,6 +149,7 @@ export default function ContactUs() {
                     <Button
                       variant="contained"
                       color="primary"
+                      type="submit"
                       endIcon={<SendIcon />}
                       disabled={isSendDisabled}
                       style={{

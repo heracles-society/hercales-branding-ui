@@ -5,7 +5,7 @@ import * as constants from "../constants"
 
 const LogoImage = require("@images/logo.png?placeholder=true&resize&format=webp")
 
-export default function FooterPage() {
+export default function Footer() {
   return (
     <motion.div>
       <footer className="site-footer">
@@ -68,24 +68,34 @@ export default function FooterPage() {
               <bold>Menu</bold>
             </div>
             <div>
-              <Link style={{ textdecoration: "none" }} href="/">
-                Home
+              <Link href="/">
+                <a style={{ textdecoration: "none" }}>Home</a>
               </Link>
             </div>
             <div>
-              <Link href="/about-us">About us</Link>
+              <Link href="/about-us">
+                <a>About us</a>
+              </Link>
             </div>
             <div>
-              <Link href="/why-us">Why us</Link>
+              <Link href="/why-us">
+                <a>Why us</a>
+              </Link>
             </div>
             <div>
-              <Link href="/service">Services</Link>
+              <Link href="/service">
+                <a>Services</a>
+              </Link>
             </div>
             <div>
-              <Link href="/pricing">Pricing</Link>
+              <Link href="/pricing">
+                <a>Pricing</a>
+              </Link>
             </div>
             <div>
-              <Link href="/contact-us">Contact Us</Link>
+              <Link href="/contact-us">
+                <a>Contact Us</a>
+              </Link>
             </div>
             <div>
               <div>Request Demo</div>
@@ -120,13 +130,19 @@ export default function FooterPage() {
               <bold>Policy</bold>
             </div>
             <div>
-              <Link href="/privacy-policy">Privacy Policy</Link>
+              <Link href="/privacy-policy">
+                <a>Privacy Policy</a>
+              </Link>
             </div>
             <div>
-              <Link href="/disclaimer">Diclaimer</Link>
+              <Link href="/disclaimer">
+                <a>Diclaimer</a>
+              </Link>
             </div>
             <div>
-              <Link href="/terms-condition">Terms and Conditions</Link>
+              <Link href="/terms-and-conditions">
+                <a>Terms and Conditions</a>
+              </Link>
             </div>
           </div>
 
