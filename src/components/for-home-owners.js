@@ -28,17 +28,13 @@ export default function ForHomeOwnersPage() {
               src={forOwnersBackgroundImage.src}
               srcSetData={{
                 srcSet: forOwnersBackgroundImage.srcSet,
+                sizes: "30vw",
               }}
               placeholder={forOwnersBackgroundImage.placeholder}
             >
               {(src, _loading, srcSetData) => (
                 <>
-                  <motion.img
-                    src={src}
-                    srcSet={srcSetData.srcSet}
-                    sizes="(min-width: 1024px) 1024px, 100vw"
-                    alt="an image"
-                  />
+                  <motion.img src={src} srcSet={srcSetData.srcSet} sizes={srcSetData.sizes} alt="an image" />
                 </>
               )}
             </ProgressiveImage>

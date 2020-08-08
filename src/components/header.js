@@ -13,7 +13,7 @@ export default function HeaderPage(props) {
             {Object.keys(constants.NAV_LIST).map((nav, index) => {
               return (
                 <li className="nav-list-item" key={index}>
-                  <Link href={constants.NAV_LIST[nav]}>
+                  <Link href={constants.NAV_LIST[nav]} prefetch={false}>
                     <a style={{ color: isHomePage ? "white" : "black" }}>{nav}</a>
                   </Link>
                 </li>

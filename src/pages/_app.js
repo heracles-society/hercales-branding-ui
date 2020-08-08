@@ -8,14 +8,14 @@ const slideUp = {
   initial: {
     transform: "translateY(100%)",
     transition: {
-      duration: 1,
+      duration: 0.45,
       ease: easing,
     },
   },
   animate: {
     transform: "translateY(0%)",
     transition: {
-      duration: 1,
+      duration: 0.45,
       ease: easing,
     },
   },
@@ -25,14 +25,14 @@ const slideDown = {
   initial: {
     transform: "translateY(-2000px)",
     transition: {
-      duration: 1,
+      duration: 0.45,
       ease: easing,
     },
   },
   animate: {
     transform: "translateY(0%)",
     transition: {
-      duration: 1,
+      duration: 0.45,
       ease: easing,
     },
   },
@@ -43,12 +43,6 @@ function MyApp({ Component, pageProps }) {
   const [loading, setLoading] = useState(false)
   const [initialRender, setInitialRender] = useState(true)
   const [canScroll, setCanScroll] = useState()
-  useEffect(() => {
-    const timeout = setTimeout(() => setInitialRender(false), 2000)
-    return () => {
-      clearTimeout(timeout)
-    }
-  }, [])
 
   const clearScroll = () => setCanScroll(true)
   useEffect(() => {
@@ -67,7 +61,7 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     const handleStart = () => setLoading(true)
-    const handleComplete = () => setTimeout(() => setLoading(false), 2000)
+    const handleComplete = () => setLoading(false)
 
     router.events.on("routeChangeStart", handleStart)
     router.events.on("routeChangeComplete", handleComplete)
@@ -106,7 +100,7 @@ function MyApp({ Component, pageProps }) {
           </motion.div>
         )}
       </AnimatePresence>
-      <AnimatePresence exitBeforeEnter onExitComplete={clearScroll}>
+      <AnimatePresence exitBeforeEnter>
         {initialRender && (
           <motion.div
             key="app-intro-scene"
@@ -120,6 +114,7 @@ function MyApp({ Component, pageProps }) {
             style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
           >
             <motion.div
+              onAnimationComplete={() => requestAnimationFrame(() => setInitialRender(false))}
               variants={slideDown}
               initial="initial"
               animate="animate"

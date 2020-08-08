@@ -108,9 +108,6 @@ export default function Footer() {
             </div>
             <address>{constants.ADDRESS_2}</address>
             <address>{constants.ADDRESS_1}</address>
-            <Link href="/contact-us">
-              <button>{constants.CONTACT_US}</button>
-            </Link>
           </div>
 
           <div className="section" style={{ marginLeft: "13rem" }}>
