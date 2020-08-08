@@ -9,7 +9,7 @@ const plugins = [
   [
     optimizedImages,
     {
-      optimizeImagesInDev: true,
+      optimizeImagesInDev: false,
       responsive: {
         adapter: require("responsive-loader/sharp"),
         sizes: [320, 640, 960, 1200, 1400, 1600, 1800, 2400],
