@@ -30,7 +30,6 @@ class MyDocument extends Document {
             name="keywords"
             content="society, apartment, rent, lease, home, furnished, semi furnished, house, security"
           />
-
           <link rel="manifest" href="/manifest.json" />
           <link href="/icons/icon-72x72.png" rel="icon" type="image/png" sizes="72x72" />
           <link rel="apple-touch-icon" href="/icons/icon-384x384.png"></link>

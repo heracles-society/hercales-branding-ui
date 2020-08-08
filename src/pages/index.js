@@ -1,15 +1,17 @@
-import { AnimatePresence, motion, transform } from "framer-motion"
 import Link from "next/link"
-import { useEffect, useRef, useState } from "react"
-import useSmoothScrollbar from "src/hooks/use-smooth-scrollbar"
 import Head from "next/head"
-import HeaderPage from "../components/header"
-import ForBuildersPage from "./for-builders"
-import ForHomeOwnersPage from "./for-home-owners"
-import ForSecurityPage from "./for-security"
-import ForSocietyManagerPage from "./for-society-manager"
-import Footer from "../components/footer"
+import { useEffect, useRef, useState } from "react"
+import { AnimatePresence, motion, transform } from "framer-motion"
+
+import useSmoothScrollbar from "src/hooks/use-smooth-scrollbar"
+import HeaderPage from "@components/header"
+import ForBuildersPage from "@components/for-builders"
+import ForHomeOwnersPage from "@components/for-home-owners"
+import ForSecurityPage from "@components/for-security"
+import ForSocietyManagerPage from "@components/for-society-manager"
+import Footer from "@components/footer"
 import * as constants from "../constants"
+import ProgressiveImage from "react-progressive-image"
 
 const siteHeroImage = require("@images/site-hero-image.jpg?placeholder=true&resize&format=webp")
 
@@ -41,24 +43,34 @@ export default function Home() {
               <div className="heading">
                 <h1>{constants.LANDING_HEADING}</h1>
                 <p>{constants.LANDING_SUBHEADING}</p>
-                <Link href="/about-us">
+                <Link href="/about-us" prefetch={false}>
                   <a>{constants.LANDING_LINK}</a>
                 </Link>
               </div>
               <div ref={overlayRef} className="image-background-container">
                 <div className="overlay"></div>
-                <picture
-                  className="image-background"
-                  style={{ backgroundSize: "cover", background: `url(${siteHeroImage.placeholder})` }}
-                >
-                  <motion.img
+                <picture className="image-background">
+                  <ProgressiveImage
                     src={siteHeroImage.src}
-                    srcSet={siteHeroImage.srcSet}
-                    sizes="(min-width: 1024px) 1024px, 100vw"
-                    alt="an image"
-                    initial={{ scale: 1 }}
-                    style={{ scale: scaleImage }}
-                  />
+                    srcSetData={{
+                      srcSet: siteHeroImage.srcSet,
+                      sizes: "100vw",
+                    }}
+                    placeholder={siteHeroImage.placeholder}
+                  >
+                    {(src, _loading, srcSetData) => (
+                      <>
+                        <motion.img
+                          src={src}
+                          srcSet={srcSetData.srcSet}
+                          sizes={srcSetData.sizes}
+                          alt="an image"
+                          initial={{ scale: 1 }}
+                          style={{ scale: scaleImage }}
+                        />
+                      </>
+                    )}
+                  </ProgressiveImage>
                 </picture>
               </div>
             </section>

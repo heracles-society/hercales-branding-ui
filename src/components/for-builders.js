@@ -27,17 +27,13 @@ export default function ForBuildersPage() {
               src={forBuilderBackgroundImage.src}
               srcSetData={{
                 srcSet: forBuilderBackgroundImage.srcSet,
+                sizes: "35vw",
               }}
               placeholder={forBuilderBackgroundImage.placeholder}
             >
               {(src, _loading, srcSetData) => (
                 <>
-                  <motion.img
-                    src={src}
-                    srcSet={srcSetData.srcSet}
-                    sizes="(min-width: 1024px) 1024px, 100vw"
-                    alt="an image"
-                  />
+                  <motion.img src={src} srcSet={srcSetData.srcSet} sizes={srcSetData.sizes} alt="an image" />
                 </>
               )}
             </ProgressiveImage>
