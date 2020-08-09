@@ -44,7 +44,6 @@ function MyApp({ Component, pageProps }) {
   const [initialRender, setInitialRender] = useState(true)
   const [canScroll, setCanScroll] = useState()
 
-  const clearScroll = () => setCanScroll(true)
   useEffect(() => {
     if (canScroll) {
       document.querySelector("body").classList.remove("no-scroll")
@@ -61,7 +60,7 @@ function MyApp({ Component, pageProps }) {
 
   useEffect(() => {
     const handleStart = () => setLoading(true)
-    const handleComplete = () => setLoading(false)
+    const handleComplete = () => setTimeout(() => setLoading(false), 600)
 
     router.events.on("routeChangeStart", handleStart)
     router.events.on("routeChangeComplete", handleComplete)
@@ -79,7 +78,7 @@ function MyApp({ Component, pageProps }) {
       <div className="app">
         <AnimatePresence>{loading === false && <Component key="component" {...pageProps} />}</AnimatePresence>
       </div>
-      <AnimatePresence exitBeforeEnter onExitComplete={clearScroll}>
+      <AnimatePresence exitBeforeEnter>
         {loading && (
           <motion.div
             key="app-transition-scene"
@@ -91,6 +90,7 @@ function MyApp({ Component, pageProps }) {
             style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
           >
             <motion.div
+              onAnimationComplete={() => requestAnimationFrame(() => setCanScroll(true))}
               variants={slideDown}
               initial="initial"
               animate="animate"
