@@ -355,52 +355,53 @@
       }
     }
   }
-  footer.site-footer {
-    .wrapper {
-      min-height: 70vh;
-      width: 100%;
-      background-color: black;
-      padding: $spacing-9;
+}
 
-      .copyright {
+.site-footer {
+  .wrapper {
+    min-height: 70vh;
+    width: 100%;
+    background-color: black;
+    padding: $spacing-9;
+
+    .copyright {
+      color: white;
+      position: relative;
+      top: 4rem;
+      text-align: center;
+    }
+    .section {
+      width: 20%;
+      display: inline-block;
+      color: $grey;
+      position: relative;
+
+      address {
+        line-height: 1.5rem;
+        margin-bottom: 1.5rem;
         color: white;
-        position: relative;
-        top: 4rem;
-        text-align: center;
       }
-      .section {
-        width: 20%;
-        display: inline-block;
-        color: $grey;
-        position: relative;
 
-        address {
-          line-height: 1.5rem;
-          margin-bottom: 1.5rem;
-          color: white;
-        }
+      .logo {
+        width: 8rem;
+        height: 8rem;
+        border-radius: 50%;
+      }
 
-        .logo {
-          width: 8rem;
-          height: 8rem;
-          border-radius: 50%;
-        }
+      div {
+        margin-bottom: $spacing-5;
+        font-size: $font-size-3;
+        font-weight: normal;
+        cursor: pointer;
+        transition: ease-in 0.5s all;
 
-        div {
-          margin-bottom: $spacing-5;
-          font-size: $font-size-3;
-          font-weight: normal;
-          cursor: pointer;
-          transition: ease-in 0.5s all;
+        a {
+          text-decoration: none;
+          color: $grey;
 
-          a {
-            text-decoration: none;
-            color: $grey;
-
-            &:hover {
-              text-decoration: underline;
-              color: white;
-            }
+          &:hover {
+            text-decoration: underline;
+            color: white;
           }
         }
       }
