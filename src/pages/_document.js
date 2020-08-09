@@ -39,8 +39,8 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,100;0,400;0,700;1,400;1,700&family=Vesper+Libre:wght@400;500;700;900&display=swap"
             rel="stylesheet"
             type="text/css"
-            media="print"
-            onLoad="this.onload=null;this.media='all'"
+            media="all"
+            onLoad="this.onload=null"
           ></link>
         </Head>
         <body>
