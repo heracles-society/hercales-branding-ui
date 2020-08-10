@@ -30,12 +30,12 @@
         position: absolute;
         width: 35rem;
         height: 25rem;
-        left: 8rem;
-        top: 10rem;
+        left: $spacing-9;
+        top: $spacing-10;
 
         .subtitle {
           letter-spacing: 2.8px;
-          font-size: 0.875rem;
+          font-size: $font-size-1;
           font-weight: 700;
           text-transform: uppercase;
           line-height: 120%;
@@ -43,8 +43,8 @@
         }
 
         .title {
-          margin-top: 30px;
-          font-size: 3.5rem;
+          margin-top: $spacing-5;
+          font-size: $font-size-9;
           font-weight: 500;
           line-height: 120%;
           color: #221f20;
@@ -77,8 +77,8 @@
         position: absolute;
         width: 15rem;
         height: 20rem;
-        top: 10rem;
-        left: 25rem;
+        top: $spacing-10;
+        left: $spacing-13;
         z-index: 100;
         background: url("../../images/about-2.jpeg");
         background-size: cover;
@@ -98,19 +98,19 @@
 
         .title {
           position: absolute;
-          left: 4rem;
-          font-size: 3rem;
+          left: $spacing-7;
+          font-size: $font-size-8;
           font-weight: 500;
-          top: 3rem;
+          top: $spacing-6;
         }
 
         .subtitle {
           position: absolute;
           top: 10rem;
-          left: 4rem;
-          font-size: 1.3rem;
+          left: $spacing-7;
+          font-size: $font-size-4;
           font-weight: 500;
-          line-height: 1.5rem;
+          line-height: $spacing-4;
           letter-spacing: 1.2px;
         }
       }
@@ -118,7 +118,7 @@
   }
 
   .team {
-    margin-top: 4rem;
+    margin-top: $spacing-7;
     margin-bottom: 5rem;
     height: auto;
     width: 100vw;
@@ -132,16 +132,16 @@
 
       .key {
         letter-spacing: 2.8px;
-        font-size: 0.875rem;
+        font-size: $font-size-1;
         font-weight: 700;
         line-height: 120%;
         text-transform: uppercase;
-        padding: 4rem;
+        padding: $spacing-7;
       }
 
       .competitive {
         letter-spacing: 1.3px;
-        font-size: 3rem;
+        font-size: $font-size-8;
         width: 40%;
         text-transform: uppercase;
         line-height: 3.5rem;
@@ -177,7 +177,7 @@
       .member_2,
       .member_3 {
         width: 100%;
-        margin-top: 3rem;
+        margin-top: $spacing-6;
 
         .member-image {
           width: 45%;
@@ -191,27 +191,27 @@
         .member-desc {
           width: 45%;
           display: inline-block;
-          margin-left: 2rem;
-          margin-right: 3rem;
+          margin-left: $spacing-5;
+          margin-right: $spacing-6;
 
           .designation {
             text-transform: uppercase;
             letter-spacing: 2.8px;
-            font-size: 0.875rem;
+            font-size: $font-size-1;
             font-weight: 700;
-            margin-bottom: 2rem;
+            margin-bottom: $spacing-5;
           }
 
           .name {
             letter-spacing: 1.3px;
-            font-size: 3rem;
-            margin-bottom: 2rem;
+            font-size: $font-size-8;
+            margin-bottom: $spacing-5;
           }
 
           .mail {
-            margin-bottom: 2rem;
+            margin-bottom: $spacing-5;
             letter-spacing: 2.8px;
-            font-size: 0.875rem;
+            font-size: $font-size-1;
 
             &:hover {
               text-decoration: underline;
@@ -220,10 +220,10 @@
           }
 
           .about {
-            font-size: 1.2rem;
+            font-size: $font-size-4;
             line-height: 1.5rem;
             letter-spacing: 2.8px;
-            margin-bottom: 3rem;
+            margin-bottom: $spacing-6;
           }
         }
       }
