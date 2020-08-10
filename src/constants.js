@@ -118,3 +118,44 @@ export const PRICING_FACILITY = [
     },
   },
 ]
+
+// About us page
+export const TEAM = "Team"
+export const ABOUT_TITLE = "A diversified firm with an eye on the future."
+export const ABOUT_SUB_TITLE =
+  "With a passion for quality products, Adige Design’s mission is to uncover special artisans, unique materials & products, and incorporate them in any development, home, or office. Boston-based, Adige travels throughout Italy and France going to the mines, workshops, factories, and mills to diligently search and discover special artisans with centuries of craft knowledge in their culture and quality artisan product suppliers without larger international representation."
+export const DISCOVERING_TITLE = "Discovering value"
+export const ABOUT_PEOPLE = "Key People"
+export const ADVANTAGE = "Our competitive advantage"
+export const About_US = [
+  {
+    className: "member_1",
+    imageStyle: "member-image",
+    imageDisplay: "left",
+    designation: "Co-founder / Project Designer / Senior Developer",
+    name: "Avik Sarkar",
+    mail: "sayavik@gmail.com",
+    about:
+      "An IT Graduate with B-tech from AOT, Kolkata. Avik has over 6 years of experience. Prior to founding Heracles, Avik is a senior Member of Technical Staff at Nutanix, Bangalore, India and works on multiple ecommerce project. Avik have worked extensively delivering value to Engineering productivity & Developer happiness. Avik build Tools and Services with products in Ecommerce, Tooling and Engineering domain.",
+  },
+  {
+    className: "member_2",
+    imageStyle: "member-image-2",
+    imageDisplay: "right",
+    designation: "Co-founder / Senior Developer",
+    name: "Kumar Ankur",
+    mail: "akakankur81@gmail.com",
+    about:
+      "An IT Graduate with B-tech from AOT, Kolkata. Ankur has over 6 years of experience. Prior to founding Heracles, Ankur is a senior FrontEnd Developer at Sapient, Noida, India and works on many telecom & hospitality project. Ankur is deeply passionate about the technology and create several project from last 5 years.",
+  },
+  {
+    className: "member_3",
+    imageStyle: "member-image-3",
+    imageDisplay: "left",
+    designation: "Co-founder / Senior Developer",
+    name: "Manish Gupta",
+    mail: "manish@gmail.com",
+    about:
+      "An IT Graduate with B-tech from AOT, Kolkata. Manish has over 6 years of experience. Prior to founding Heracles, Manish is a senior Member of Technical Staff at Nutanix, Bangalore, India and works on multiple ecommerce project. Manish have worked extensively delivering value to Engineering productivity & Developer happiness. Manish build Tools and Services with products in Ecommerce, Tooling and Engineering domain.",
+  },
+]

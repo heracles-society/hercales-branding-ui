@@ -1,0 +1,232 @@
+.about-us {
+  .header {
+    width: 100vw;
+    height: 70vh;
+    background: url("../../images/about-us.jpg");
+    background-size: contain;
+    position: relative;
+    z-index: -1;
+    transition: ease-in-out all 0.5s;
+
+    &:before {
+      content: "";
+      position: absolute;
+      opacity: 0.9;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+    }
+
+    .wrapper {
+      position: absolute;
+      z-index: 10;
+      clip-path: polygon(0 0, 60vw 0, 70vw 100%, 0 100%);
+      background: #cbd1d2;
+      width: 70vw;
+      height: 70vh;
+
+      .content {
+        position: absolute;
+        width: 35rem;
+        height: 25rem;
+        left: 8rem;
+        top: 10rem;
+
+        .subtitle {
+          letter-spacing: 2.8px;
+          font-size: 0.875rem;
+          font-weight: 700;
+          text-transform: uppercase;
+          line-height: 120%;
+          color: #221f20;
+        }
+
+        .title {
+          margin-top: 30px;
+          font-size: 3.5rem;
+          font-weight: 500;
+          line-height: 120%;
+          color: #221f20;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+
+  .discovering {
+    height: 70vh;
+
+    .discovering-image {
+      width: 45%;
+      height: 100%;
+      display: inline-block;
+      position: relative;
+
+      .image-1 {
+        position: absolute;
+        width: 30rem;
+        height: 20rem;
+        top: 7rem;
+        left: 5rem;
+        background: url("../../images/about-1.jpeg");
+        background-size: cover;
+      }
+
+      .image-2 {
+        position: absolute;
+        width: 15rem;
+        height: 20rem;
+        top: 10rem;
+        left: 25rem;
+        z-index: 100;
+        background: url("../../images/about-2.jpeg");
+        background-size: cover;
+      }
+    }
+
+    .discovering-content {
+      width: 45%;
+      display: inline-block;
+
+      .content {
+        position: relative;
+        width: 35rem;
+        height: 25rem;
+        left: 9rem;
+        top: -7rem;
+
+        .title {
+          position: absolute;
+          left: 4rem;
+          font-size: 3rem;
+          font-weight: 500;
+          top: 3rem;
+        }
+
+        .subtitle {
+          position: absolute;
+          top: 10rem;
+          left: 4rem;
+          font-size: 1.3rem;
+          font-weight: 500;
+          line-height: 1.5rem;
+          letter-spacing: 1.2px;
+        }
+      }
+    }
+  }
+
+  .team {
+    margin-top: 4rem;
+    margin-bottom: 5rem;
+    height: auto;
+    width: 100vw;
+    background: $black;
+    color: $white;
+    .team-content {
+      width: 78vw;
+      max-width: 1220px;
+      margin: 0 auto;
+      margin-top: $spacing-7;
+
+      .key {
+        letter-spacing: 2.8px;
+        font-size: 0.875rem;
+        font-weight: 700;
+        line-height: 120%;
+        text-transform: uppercase;
+        padding: 4rem;
+      }
+
+      .competitive {
+        letter-spacing: 1.3px;
+        font-size: 3rem;
+        width: 40%;
+        text-transform: uppercase;
+        line-height: 3.5rem;
+        margin-left: 3.2rem;
+      }
+
+      .member_2 {
+        margin-top: 5rem;
+        .member-image-2 {
+          width: 45%;
+          height: 25rem;
+          display: inline-block;
+          background: url("../../images/ankur1.jpeg");
+          background-size: cover;
+          margin-left: 1rem;
+        }
+      }
+
+      .member_3 {
+        margin-top: 5rem;
+        .member-image-3 {
+          width: 45%;
+          height: 25rem;
+          display: inline-block;
+          background: url("../../images/mani.jpg");
+          background-size: cover;
+          margin-left: 1rem;
+          filter: grayscale(100%);
+        }
+      }
+
+      .member_1,
+      .member_2,
+      .member_3 {
+        width: 100%;
+        margin-top: 3rem;
+
+        .member-image {
+          width: 45%;
+          height: 25rem;
+          display: inline-block;
+          background: url("../../images/avik.jpg");
+          background-size: cover;
+          margin-left: 1rem;
+        }
+
+        .member-desc {
+          width: 45%;
+          display: inline-block;
+          margin-left: 2rem;
+          margin-right: 3rem;
+
+          .designation {
+            text-transform: uppercase;
+            letter-spacing: 2.8px;
+            font-size: 0.875rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+          }
+
+          .name {
+            letter-spacing: 1.3px;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+          }
+
+          .mail {
+            margin-bottom: 2rem;
+            letter-spacing: 2.8px;
+            font-size: 0.875rem;
+
+            &:hover {
+              text-decoration: underline;
+              cursor: pointer;
+            }
+          }
+
+          .about {
+            font-size: 1.2rem;
+            line-height: 1.5rem;
+            letter-spacing: 2.8px;
+            margin-bottom: 3rem;
+          }
+        }
+      }
+    }
+  }
+}

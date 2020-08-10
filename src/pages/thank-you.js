@@ -1,12 +1,13 @@
 import { motion } from "framer-motion"
-import Link from "next/link"
 
 export default function ThankYouPage() {
   return (
     <motion.div>
-      <Link href="/">
-        <a>Home</a>
-      </Link>
+      <div className="thankyou">
+        <div className="content">
+          <h1>Thank You</h1>
+        </div>
+      </div>
     </motion.div>
   )
 }
