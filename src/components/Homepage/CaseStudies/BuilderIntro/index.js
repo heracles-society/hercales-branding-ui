@@ -1,27 +1,29 @@
-import { motion } from "framer-motion"
 import Link from "next/link"
 import ProgressiveImage from "react-progressive-image"
-import * as constants from "../../../../constants"
+import { motion } from "framer-motion"
+
+import styles from "./BuilderIntro.module.scss"
+import * as constants from "@constants"
 
 const forBuilderBackgroundImage = require("@images/for-builders-image.jpg?placeholder=true&resize&format=webp")
 
 export default function ForBuildersPage() {
   return (
-    <motion.div>
-      <section className="section for-builders">
-        <header className="header-wrapper">
+    <motion.div className={styles["wrapper"]}>
+      <section className={styles["for-builders"]}>
+        <header className={styles["header-wrapper"]}>
           <h2>{constants.BUILDER_TITLE}</h2>
         </header>
-        <article className="article-wrapper">
+        <article className={styles["article-wrapper"]}>
           <h3>{constants.BUILDER_SUBTITLE}</h3>
-          <div className="details">
+          <div className={styles["details"]}>
             <p>{constants.BUILDER_DESC}</p>
             <Link href="/for-builders">
               <button>Contact us</button>
             </Link>
           </div>
         </article>
-        <div className="background-wrapper">
+        <div className={styles["background-wrapper"]}>
           <picture>
             <ProgressiveImage
               src={forBuilderBackgroundImage.src}

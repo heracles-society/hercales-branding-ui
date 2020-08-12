@@ -12,7 +12,7 @@ import * as constants from "@constants"
 
 import Header from "./Header"
 import Footer from "./Footer"
-import BuilderIntro from "./CaseStudies/BuilderIntro/for-builders"
+import BuilderIntro from "./CaseStudies/BuilderIntro"
 import HomeOwnerIntro from "./CaseStudies/HomeOwnerIntro/for-home-owners"
 import SecurityProviderIntro from "./CaseStudies/SecurityProvisionIntro/for-security"
 import SocietyManagementPage from "./CaseStudies/SocietyManagementIntro/for-society-manager"
@@ -22,7 +22,7 @@ const siteHeroImage = require("@images/site-hero-image.jpg?placeholder=true&resi
 export default function HomePage() {
   const appRef = useRef(null)
   const overlayRef = useRef(null)
-  const [scrollStatus, scrollbar] = useSmoothScrollbar(appRef)
+  const [scrollStatus, scrollbar] = useSmoothScrollbar(appRef, { debounceInterval: 12 })
   const [scaleImage, setScaleImage] = useState(1)
 
   useEffect(() => {

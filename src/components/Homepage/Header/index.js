@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { motion } from "framer-motion"
 import classNames from "classnames"
-import styles from "./header.module.scss"
+import styles from "./Header.module.scss"
 
 import * as constants from "@constants"
 

@@ -8,10 +8,6 @@
   height: 100vh;
   width: 100vw;
   overflow: hidden;
-
-  button {
-    @include buttons.two-layer-drape-button;
-  }
 }
 
 .hero-image-background {
@@ -185,59 +181,6 @@
 //               transition-duration: 150ms;
 //               transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
 //             }
-//           }
-//         }
-//       }
-
-//       &.for-builders {
-//         padding-top: $spacing-9;
-//         position: relative;
-//         margin-bottom: $spacing-11;
-//         .header-wrapper {
-//           margin-left: $spacing-9;
-//           margin-bottom: $spacing-8;
-//           h2 {
-//             line-height: $font-size-8;
-//             font-size: $font-size-7;
-//           }
-//           p {
-//             line-height: $font-size-5;
-//             font-size: $font-size-4;
-//           }
-//         }
-//         .article-wrapper {
-//           h3 {
-//             margin-left: 43%;
-//             font-size: $font-size-9;
-//             font-style: italic;
-//             margin-bottom: $spacing-8;
-//             width: 50%;
-//           }
-//           .details {
-//             width: 33%;
-//             margin-left: 50%;
-//             p {
-//               font-size: $font-size-5;
-//               font-weight: lighter;
-//               margin-bottom: $spacing-7;
-//             }
-//           }
-//         }
-//         .background-wrapper {
-//           position: absolute;
-//           top: $spacing-11;
-//           left: 0;
-//           z-index: -1;
-//           width: 35%;
-//           height: 90%;
-//           picture,
-//           img {
-//             height: 100%;
-//             width: 100%;
-//           }
-//           img {
-//             object-fit: cover;
-//             object-position: 50% 50%;
 //           }
 //         }
 //       }
