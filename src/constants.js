@@ -26,7 +26,7 @@ export const LANDING_SUBHEADING =
 export const LANDING_LINK = "Click here to know more"
 
 // Builders components
-export const BUILDER_TITLE = "For Real Estate"
+export const BUILDER_TITLE = "We assist dealing in Real Estate"
 export const BUILDER_SUBTITLE = "Easy and approchable platform for customers."
 export const BUILDER_DESC =
   "Sell, Purchase or Rent will be effort less as society administration provide you all the data and it's geniune guranteed by Heracles. Select society, flat based on one click and gets 100% satisfied report without any third party involvment."

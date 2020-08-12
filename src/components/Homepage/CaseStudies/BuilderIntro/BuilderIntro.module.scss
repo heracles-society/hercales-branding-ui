@@ -24,23 +24,36 @@
   font-family: base.$font-family-content-2;
 
   h2 {
+    position: relative;
     font-size: variables.$font-size-6;
-    line-height: variables.$font-size-8;
-    margin: 0 0 variables.$spacing-4 variables.$spacing-10;
+    line-height: variables.$font-size-6;
+    margin: 0 0 variables.$spacing-5 variables.$spacing-10;
+    width: 220px;
     color: base.$grey-17;
     @include media("<=phone") {
       font-size: variables.$font-size-4;
+      line-height: variables.$font-size-4;
       margin-left: variables.$spacing-3;
     }
 
     @include media(">phone", "<=tablet") {
       font-size: variables.$font-size-5;
+      line-height: variables.$font-size-5;
       margin-left: variables.$spacing-5;
     }
 
     @include media(">tablet", "<=desktop") {
-      font-size: variables.$font-size-6;
       margin-left: variables.$spacing-6;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 50%;
+      height: 10px;
+      top: calc(100% + #{variables.$spacing-2});
+      left: 0;
+      background-color: variables.$red;
     }
   }
 }
