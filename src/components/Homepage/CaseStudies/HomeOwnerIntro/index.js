@@ -1,29 +1,30 @@
-import { motion } from "framer-motion"
 import Link from "next/link"
 import ProgressiveImage from "react-progressive-image"
-import * as constants from "../../../../constants"
+import { motion } from "framer-motion"
+import styles from "./HomeOwnerIntro.module.scss"
+import * as constants from "@constants"
 
 const forOwnersBackgroundImage = require("@images/for-owners-image.jpg?placeholder=true&resize&format=webp")
 
 export default function ForHomeOwnersPage() {
   return (
-    <motion.div>
-      <section className="section for-home-owners">
-        <header className="header-wrapper">
+    <motion.section className={styles["wrapper"]}>
+      <div className={styles["for-home-owners"]}>
+        <header className={styles["header-wrapper"]}>
           <h2>{constants.OWNER_TITLE}</h2>
         </header>
-        <article className="article-wrapper">
-          <div className="article-background"></div>
+        <article className={styles["article-wrapper"]}>
+          <div className={styles["article-background"]}></div>
           <h3>{constants.OWNER_SUBTITLE}</h3>
-          <div className="details">
+          <div className={styles["details"]}>
             <p>{constants.OWNER_DESCRIPTION}</p>
             <Link href="/for-home-owners">
               <button>{constants.CONTACT_US}</button>
             </Link>
           </div>
         </article>
-        <div className="image-wrapper">
-          <picture className="image-background">
+        <div className={styles["image-wrapper"]}>
+          <picture>
             <ProgressiveImage
               src={forOwnersBackgroundImage.src}
               srcSetData={{
@@ -40,7 +41,7 @@ export default function ForHomeOwnersPage() {
             </ProgressiveImage>
           </picture>
         </div>
-      </section>
-    </motion.div>
+      </div>
+    </motion.section>
   )
 }

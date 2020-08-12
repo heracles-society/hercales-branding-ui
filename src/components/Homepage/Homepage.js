@@ -13,7 +13,7 @@ import * as constants from "@constants"
 import Header from "./Header"
 import Footer from "./Footer"
 import BuilderIntro from "./CaseStudies/BuilderIntro"
-import HomeOwnerIntro from "./CaseStudies/HomeOwnerIntro/for-home-owners"
+import HomeOwnerIntro from "./CaseStudies/HomeOwnerIntro"
 import SecurityProviderIntro from "./CaseStudies/SecurityProvisionIntro/for-security"
 import SocietyManagementPage from "./CaseStudies/SocietyManagementIntro/for-society-manager"
 
@@ -42,7 +42,7 @@ export default function HomePage() {
         <>
           <Header isHomePage={true} />
           <div ref={appRef} className={classNames(styles["wrapper"])}>
-            <main>
+            <main className="no-scroll">
               <section className={classNames(styles["hero-image-background"])}>
                 <div className={classNames(styles["title"])}>
                   <h1>{constants.LANDING_HEADING}</h1>

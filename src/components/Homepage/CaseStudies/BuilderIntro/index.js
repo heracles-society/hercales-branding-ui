@@ -9,8 +9,8 @@ const forBuilderBackgroundImage = require("@images/for-builders-image.jpg?placeh
 
 export default function ForBuildersPage() {
   return (
-    <motion.div className={styles["wrapper"]}>
-      <section className={styles["for-builders"]}>
+    <motion.section className={styles["wrapper"]}>
+      <div className={styles["for-builders"]}>
         <header className={styles["header-wrapper"]}>
           <h2>{constants.BUILDER_TITLE}</h2>
         </header>
@@ -19,8 +19,16 @@ export default function ForBuildersPage() {
           <div className={styles["details"]}>
             <p>{constants.BUILDER_DESC}</p>
             <Link href="/for-builders">
-              <button>Contact us</button>
+              <a>Know more</a>
             </Link>
+          </div>
+          <div className={styles["features"]}>
+            <ul>
+              <li>Project management</li>
+              <li>Inventory management</li>
+              <li>Event management</li>
+              <li>Banking facilities</li>
+            </ul>
           </div>
         </article>
         <div className={styles["background-wrapper"]}>
@@ -41,7 +49,7 @@ export default function ForBuildersPage() {
             </ProgressiveImage>
           </picture>
         </div>
-      </section>
-    </motion.div>
+      </div>
+    </motion.section>
   )
 }
