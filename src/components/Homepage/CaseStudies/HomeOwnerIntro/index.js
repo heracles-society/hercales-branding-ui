@@ -19,7 +19,7 @@ export default function ForHomeOwnersPage() {
           <div className={styles["details"]}>
             <p>{constants.OWNER_DESCRIPTION}</p>
             <Link href="/for-home-owners">
-              <button>{constants.CONTACT_US}</button>
+              <button>Know more</button>
             </Link>
           </div>
         </article>

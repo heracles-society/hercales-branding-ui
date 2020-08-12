@@ -7,6 +7,7 @@
 .wrapper {
   position: relative;
   min-height: variables.$spacing-13;
+  margin-bottom: variables.$spacing-7;
 
   @include media(">tablet") {
     min-height: 100vh;
@@ -15,64 +16,35 @@
 }
 
 .for-builders {
+  padding-top: variables.$spacing-6;
   position: relative;
 }
 
 .header-wrapper {
-  position: absolute;
-  top: variables.$spacing-8;
-  left: variables.$spacing-9;
   font-family: base.$font-family-content-2;
-  width: calc(100% - #{variables.$spacing-9});
-
-  @include media("<=phone") {
-    top: variables.$spacing-3;
-    left: variables.$spacing-3;
-    width: calc(100% - #{variables.$spacing-3});
-  }
-
-  @include media(">phone", "<=tablet") {
-    top: variables.$spacing-4;
-    left: variables.$spacing-5;
-    width: calc(100% - #{variables.$spacing-5});
-  }
-
-  @include media(">tablet", "<=desktop") {
-    top: variables.$spacing-5;
-    left: variables.$spacing-8;
-    width: calc(100% - #{variables.$spacing-8});
-  }
 
   h2 {
     font-size: variables.$font-size-6;
     line-height: variables.$font-size-8;
+    margin: 0 0 variables.$spacing-4 variables.$spacing-10;
     color: base.$grey-17;
     @include media("<=phone") {
       font-size: variables.$font-size-4;
+      margin-left: variables.$spacing-3;
     }
 
     @include media(">phone", "<=tablet") {
       font-size: variables.$font-size-5;
+      margin-left: variables.$spacing-5;
     }
 
     @include media(">tablet", "<=desktop") {
       font-size: variables.$font-size-6;
+      margin-left: variables.$spacing-6;
     }
   }
 }
 .article-wrapper {
-  padding-top: variables.$spacing-9;
-  @include media("<=phone") {
-    padding-top: variables.$spacing-7;
-  }
-
-  @include media(">phone", "<=tablet") {
-    padding-top: variables.$spacing-8;
-  }
-
-  @include media(">tablet", "<=desktop") {
-    padding-top: variables.$spacing-9;
-  }
   h3 {
     font-style: italic;
     font-weight: 400;
@@ -176,11 +148,10 @@
 }
 .background-wrapper {
   position: absolute;
-  top: variables.$spacing-11;
+  top: variables.$spacing-10;
   left: 0;
   z-index: -1;
   width: 35%;
-  height: calc(100% - #{variables.$spacing-11});
   max-height: 700px;
   @include media("<=tablet") {
     display: none;
@@ -192,7 +163,7 @@
 
   picture,
   img {
-    height: 100%;
+    height: 90%;
     width: 100%;
   }
   img {

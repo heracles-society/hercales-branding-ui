@@ -76,9 +76,8 @@
 
   h3 {
     color: variables.$white;
-    font-style: italic;
     font-family: base.$font-family-content-2;
-    font-size: variables.$font-size-9;
+    font-size: variables.$font-size-5;
     margin-left: 43%;
     margin-bottom: variables.$spacing-8;
     width: 50%;
@@ -116,10 +115,11 @@
 
     p {
       text-rendering: optimizeLegibility;
-      font-weight: lighter;
-      color: variables.$black;
-      font-family: base.$font-family-content-2;
-      font-size: variables.$font-size-5;
+      color: variables.$white;
+      font-family: base.$font-family-content-1;
+      font-style: italic;
+      font-size: variables.$font-size-6;
+      line-height: variables.$font-size-7;
       margin-bottom: variables.$spacing-7;
       @include media("<=phone") {
         font-weight: normal;
@@ -146,13 +146,19 @@
     button {
       @include buttons.two-layer-drape-button;
       margin-bottom: variables.$spacing-5;
-      text-transform: uppercase;
+      color: variables.$white;
+      border-color: variables.$white;
+      background-color: transparent;
+      padding: variables.$spacing-1 variables.$spacing-4;
 
+      &::after {
+        background-color: variables.$white;
+      }
+      &::before {
+        background-color: variables.$grey;
+      }
       &:hover {
-        background-color: base.$aqua-20;
-        transition: background-color;
-        transition-delay: 250ms;
-        transition-timing-function: ease-in;
+        color: variables.$black;
       }
     }
   }
@@ -165,18 +171,8 @@
   z-index: -1;
   width: 35%;
   height: calc(100% - #{variables.$spacing-11});
-  @include media("<=phone") {
-    top: 75%;
-    left: 50%;
-    width: 50%;
-    height: 200px;
-  }
-
-  @include media(">phone", "<=tablet") {
-    top: 75%;
-    left: 50%;
-    width: 50%;
-    height: 200px;
+  @include media("<=tablet") {
+    display: none;
   }
 
   @include media(">tablet", "<=desktop") {
