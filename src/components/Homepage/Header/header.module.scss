@@ -1,0 +1,47 @@
+@use "@styles/base/_typography";
+@use "@styles/helpers/_mixins";
+@use "@styles/helpers/_variables";
+@import "include-media/dist/_include-media";
+
+.site-hamburger-menu {
+  z-index: variables.$z-index-2;
+  position: fixed;
+  top: 0;
+  right: 0;
+  @include mixins.size(120px);
+  @include media(">desktop") {
+    display: none;
+  }
+}
+
+.site-nav {
+  z-index: variables.$z-index-2;
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-family: typography.$font-family-content-2;
+  @include media("<=desktop") {
+    display: none;
+  }
+
+  ul.nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-top: variables.$spacing-6;
+    margin-right: variables.$spacing-9;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    & li.nav-list-item {
+      line-height: variables.$font-size-7;
+      display: flex;
+      margin: 0 variables.$spacing-2;
+      a {
+        padding: 0 variables.$spacing-2;
+        text-decoration: none;
+        font-size: variables.$font-size-4;
+      }
+    }
+  }
+}

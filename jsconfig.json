@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
-    "moduleResolution": "node",
-    "baseUrl": "./",
+    "baseUrl": "src",
     "paths": {
-      "@components/*": ["./src/components/*"],
-      "@images/*": ["./src/images/*"]
+      "@styles/*": ["styles/*"],
+      "@hooks/*": ["hooks/*"],
+      "@components/*": ["components/*"],
+      "@images/*": ["images/*"],
+      "@constants": ["constants"]
     }
-  },
-  "exclude": ["node_modules", ".next"]
+  }
 }

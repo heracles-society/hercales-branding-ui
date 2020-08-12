@@ -35,13 +35,6 @@ class MyDocument extends Document {
           <link rel="apple-touch-icon" href="/icons/icon-384x384.png"></link>
           <meta name="theme-color" content="#05a8aa" />
           <link href="https://fonts.gstatic.com" rel="preconnect" crossOrigin="true"></link>
-          <link
-            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:ital,wght@0,100;0,400;0,700;1,400;1,700&family=Vesper+Libre:wght@400;500;700;900&display=swap"
-            rel="stylesheet"
-            type="text/css"
-            media="all"
-            onLoad="this.onload=null"
-          ></link>
         </Head>
         <body>
           <Main />

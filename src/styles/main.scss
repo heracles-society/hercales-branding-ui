@@ -1,0 +1,44 @@
+@use "./base";
+@use './helpers';
+@use "./reset.scss";
+@use "./fonts";
+
+@import "include-media/dist/_include-media";
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+html {
+  font-size: helpers.$default-font-size;
+}
+
+body {
+  background-color: helpers.$white;
+  color: helpers.$black;
+  // font-family: base.$default-font-family;
+  overscroll-behavior-y: none;
+}
+
+.app {
+  height: 100vh;
+  width: 100vw;
+}
+
+.app-intro-screen {
+  @include helpers.absolute-full;
+
+  position: fixed;
+  z-index: 1010;
+  background: black;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.no-scroll {
+  @include helpers.no-scroll;
+}

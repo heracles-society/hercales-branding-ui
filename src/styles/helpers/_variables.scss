@@ -1,0 +1,51 @@
+@use '../base/color';
+
+$z-index-0: -1;
+$z-index-1: 1;
+$z-index-2: 1000;
+$z-index-3: 1010;
+
+$default-font-size: 1.6rem; // assuming 16px
+
+$font-size-0: 1.2rem; // 12px
+$font-size-1: 1.4rem; // 14px
+$font-size-2: 1rem; // 16px
+$font-size-3: 1.8rem; // 18px
+$font-size-4: 2rem; // 20px
+$font-size-5: 2.4rem; // 24px
+$font-size-6: 3rem; // 30px
+$font-size-7: 3.6rem; // 36px
+$font-size-8: 4.8rem; // 48px
+$font-size-9: 6rem; // 60px
+$font-size-10: 7.2rem; // 72px
+$font-size-11: 8.8rem; // 88px
+$font-size-12: 10.4rem; // 104px
+
+$spacing-0: 4px;
+$spacing-1: 8px;
+$spacing-2: 12px;
+$spacing-3: 16px;
+$spacing-4: 24px;
+$spacing-5: 32px;
+$spacing-6: 48px;
+$spacing-7: 64px;
+$spacing-8: 96px;
+$spacing-9: 128px;
+$spacing-10: 192px;
+$spacing-11: 256px;
+$spacing-12: 384px;
+$spacing-13: 512px;
+$spacing-14: 768px;
+
+$black: color.$black-24 !default;
+$white: color.$white-1 !default;
+$grey: color.$grey-7 !default;
+$red: color.$red-10 !default;
+$blue: color.$blue-11 !default;
+$green: color.$green-11 !default;
+$primary: color.$aqua-15 !default;
+
+$secondary: color.$yellow-6 !default;
+$error: $red !default;
+$info: $blue !default;
+$success: $green !default;

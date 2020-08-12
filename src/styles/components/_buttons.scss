@@ -1,0 +1,49 @@
+@use "../helpers/variables";
+@use "../helpers/mixins";
+
+@mixin two-layer-drape-button {
+  z-index: 1;
+  position: relative;
+  padding: variables.$spacing-1 variables.$spacing-6;
+  vertical-align: middle;
+  font-size: variables.$font-size-4;
+  line-height: variables.$font-size-7;
+  border: 1px solid;
+  border-color: variables.$primary;
+  background: variables.$white;
+  color: variables.$primary;
+  overflow: hidden;
+  transition: color 0.3s;
+  cursor: pointer;
+
+  &::after,
+  &::before {
+    @include mixins.size(100%);
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 100%;
+    z-index: -1;
+    transition: transform 0.3s;
+    transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
+  }
+
+  &::before {
+    background: darken(variables.$primary, 5);
+  }
+
+  &::after {
+    background: variables.$primary;
+  }
+
+  &:hover {
+    color: variables.$white;
+    &::after,
+    &::before {
+      transform: translate3d(0, 100%, 0);
+    }
+    &::after {
+      transition-delay: 0.175s;
+    }
+  }
+}
