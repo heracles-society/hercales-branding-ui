@@ -32,7 +32,7 @@ export const BUILDER_DESC =
   "Sell, Purchase or Rent will be effort less as society administration provide you all the data and it's geniune guranteed by Heracles. Select society, flat based on one click and gets 100% satisfied report without any third party involvment."
 
 // HomeOwner Component
-export const OWNER_TITLE = "For Home owners"
+export const OWNER_TITLE = "We provide many services for apartment owners."
 export const OWNER_SUBTITLE = "Leave your after accomodation worries to Heracles"
 export const OWNER_DESCRIPTION =
   "Providing easy platform to pay maintainance or electricity bill, book club house, register complain, Notification mechanism, security, access request , visitors permission from single portal with less effort."

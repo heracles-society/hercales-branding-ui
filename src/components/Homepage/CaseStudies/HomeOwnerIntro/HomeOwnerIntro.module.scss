@@ -13,96 +13,113 @@
   }
 }
 
+.for-home-owners {
+  padding-top: variables.$spacing-6;
+  position: relative;
+}
+
 .header-wrapper {
-  position: absolute;
-  top: variables.$spacing-8;
-  left: variables.$spacing-9;
   font-family: base.$font-family-content-2;
-  width: calc(100% - #{variables.$spacing-9});
-
-  @include media("<=phone") {
-    top: variables.$spacing-3;
-    left: variables.$spacing-3;
-    width: calc(100% - #{variables.$spacing-3});
-  }
-
-  @include media(">phone", "<=tablet") {
-    top: variables.$spacing-4;
-    left: variables.$spacing-5;
-    width: calc(100% - #{variables.$spacing-5});
-  }
-
-  @include media(">tablet", "<=desktop") {
-    top: variables.$spacing-5;
-    left: variables.$spacing-8;
-    width: calc(100% - #{variables.$spacing-8});
-  }
 
   h2 {
+    position: relative;
     font-size: variables.$font-size-6;
-    line-height: variables.$font-size-8;
+    line-height: variables.$font-size-6;
+    margin-left: 75%;
+    margin-bottom: variables.$spacing-5;
+    width: 220px;
+    color: base.$grey-24;
     @include media("<=phone") {
       font-size: variables.$font-size-4;
+      line-height: variables.$font-size-4;
+      margin-left: variables.$spacing-3;
     }
 
     @include media(">phone", "<=tablet") {
       font-size: variables.$font-size-5;
+      line-height: variables.$font-size-5;
+      margin-left: variables.$spacing-5;
     }
 
     @include media(">tablet", "<=desktop") {
-      font-size: variables.$font-size-6;
+      margin-top: variables.$spacing-7;
+      margin-left: 70%;
+      color: variables.$white;
+    }
+
+    @include media(">desktop") {
+      margin-top: variables.$spacing-7;
+      color: variables.$white;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 50%;
+      height: 10px;
+      top: calc(100% + #{variables.$spacing-2});
+      left: 0;
+      background-color: base.$red-5;
+      @include media(">tablet") {
+        background-color: variables.$red;
+      }
     }
   }
 }
 .article-wrapper {
-  padding-top: variables.$spacing-9;
+  padding-top: variables.$spacing-8;
+
   @include media("<=phone") {
-    padding-top: variables.$spacing-7;
+    padding-top: variables.$spacing-4;
   }
 
   @include media(">phone", "<=tablet") {
-    padding-top: variables.$spacing-8;
+    padding-top: variables.$spacing-5;
   }
 
   @include media(">tablet", "<=desktop") {
-    padding-top: variables.$spacing-9;
+    padding-top: variables.$spacing-7;
   }
 
   .article-background {
     @include mixins.absolute-full;
     z-index: -2;
     background-color: darken(variables.$primary, 10);
+
+    @include media(">desktop") {
+      left: variables.$spacing-9;
+    }
   }
 
   h3 {
     color: variables.$white;
     font-family: base.$font-family-content-2;
     font-size: variables.$font-size-5;
-    margin-left: 43%;
-    margin-bottom: variables.$spacing-8;
-    width: 50%;
+    line-height: variables.$font-size-6;
+    margin-left: variables.$spacing-12;
+    margin-bottom: variables.$spacing-9;
+    width: 40%;
     @include media("<=phone") {
       width: calc(100% - #{variables.$spacing-3});
       margin-left: variables.$spacing-3;
       margin-bottom: variables.$spacing-5;
-      font-size: variables.$font-size-6;
+      font-size: variables.$font-size-4;
+      line-height: variables.$font-size-5;
     }
 
     @include media(">phone", "<=tablet") {
       width: calc(100% - #{variables.$spacing-5});
       margin-left: variables.$spacing-5;
       margin-bottom: variables.$spacing-5;
-      font-size: variables.$font-size-6;
     }
 
     @include media(">tablet", "<=desktop") {
-      font-size: variables.$font-size-6;
-      margin-bottom: variables.$spacing-7;
+      margin-bottom: variables.$spacing-8;
     }
   }
   .details {
-    width: 33%;
-    margin-left: 50%;
+    width: 45%;
+    margin-left: variables.$spacing-11;
     @include media("<=phone") {
       width: calc(100% - #{variables.$spacing-3});
       margin-left: variables.$spacing-3;
@@ -113,39 +130,44 @@
       margin-left: variables.$spacing-5;
     }
 
+    @include media(">tablet", "<=desktop") {
+      margin-left: variables.$spacing-8;
+      width: 50%;
+    }
+
     p {
       text-rendering: optimizeLegibility;
       color: variables.$white;
-      font-family: base.$font-family-content-1;
+      font-family: base.$font-family-title;
       font-style: italic;
-      font-size: variables.$font-size-6;
-      line-height: variables.$font-size-7;
+      font-size: variables.$font-size-7;
+      line-height: variables.$font-size-8;
       margin-bottom: variables.$spacing-7;
       @include media("<=phone") {
         font-weight: normal;
+        font-style: normal;
         line-height: variables.$font-size-4;
-        font-family: base.$font-family-content-1;
         font-size: variables.$font-size-3;
         margin-bottom: variables.$spacing-5;
       }
 
       @include media(">phone", "<=tablet") {
         font-weight: normal;
+        font-style: normal;
         line-height: variables.$font-size-4;
-        font-family: base.$font-family-content-1;
         font-size: variables.$font-size-3;
         margin-bottom: variables.$spacing-5;
       }
 
       @include media(">tablet", "<=desktop") {
-        font-size: variables.$font-size-4;
-        margin-bottom: variables.$spacing-5;
+        font-size: variables.$font-size-6;
+        margin-bottom: variables.$spacing-7;
       }
     }
 
     button {
       @include buttons.two-layer-drape-button;
-      margin-bottom: variables.$spacing-5;
+      margin-bottom: variables.$spacing-10;
       color: variables.$white;
       border-color: variables.$white;
       background-color: transparent;
@@ -160,24 +182,35 @@
       &:hover {
         color: variables.$black;
       }
+
+      @include media("<=phone") {
+        margin-bottom: variables.$spacing-4;
+      }
+
+      @include media(">phone", "<=tablet") {
+        margin-bottom: variables.$spacing-5;
+      }
+
+      @include media(">tablet", "<=desktop") {
+        margin-left: variables.$spacing-7;
+      }
+
+      @include media(">desktop") {
+        margin-left: variables.$spacing-9;
+      }
     }
   }
 }
 
 .image-wrapper {
   position: absolute;
-  top: variables.$spacing-11;
-  left: 0;
+  top: variables.$spacing-7;
+  right: 5%;
   z-index: -1;
-  width: 35%;
-  height: calc(100% - #{variables.$spacing-11});
+  width: 350px;
+  height: 90%;
   @include media("<=tablet") {
     display: none;
-  }
-
-  @include media(">tablet", "<=desktop") {
-    width: 35%;
-    height: 100%;
   }
 
   picture,
@@ -186,73 +219,8 @@
     width: 100%;
   }
   img {
+    filter: grayscale(100%);
     object-fit: cover;
-    object-position: 50% 50%;
+    object-position: left;
   }
 }
-
-// .article-wrapper {
-//   position: relative;
-//   color: variables.$white;
-//   min-height: calc(105vh);
-//   .article-background {
-//     @include mixins.absolute-full;
-//     z-index: -2;
-//     background-color: darken(variables.$primary, 10);
-//   }
-
-//   h3 {
-//     margin-top: variables.$spacing-9;
-//     margin-left: 35%;
-//     font-weight: lighter;
-//     font-size: variables.$font-size-5;
-//     margin-bottom: variables.$spacing-8;
-//     width: 50%;
-//   }
-
-//   .details {
-//     margin-top: variables.$spacing-9;
-//     margin-left: 20%;
-//     margin-bottom: variables.$spacing-7;
-//     p {
-//       font-family: base.$font-family-content-1;
-//       font-size: variables.$font-size-8;
-//       font-style: italic;
-//       font-weight: thin;
-//       margin-bottom: variables.$spacing-8;
-//       width: 50%;
-//     }
-//     button {
-//       margin-left: variables.$spacing-8;
-//       border-color: variables.$white;
-//       &:hover {
-//         color: variables.$black;
-//         box-shadow: 1px 1px 0 0 darken(variables.$primary, 20);
-//       }
-//       &::after {
-//         background-color: variables.$white;
-//       }
-//       &::before {
-//         background-color: variables.$black;
-//       }
-//     }
-//   }
-// }
-// .image-wrapper {
-//   position: absolute;
-//   top: variables.$spacing-12;
-//   right: variables.$spacing-6;
-//   overflow: hidden;
-//   height: 80%;
-//   width: 30%;
-//   z-index: -1;
-//   picture,
-//   img {
-//     height: 100%;
-//     width: 100%;
-//   }
-//   img {
-//     object-fit: cover;
-//     object-position: left;
-//   }
-// }

@@ -29,7 +29,7 @@ export default function ForHomeOwnersPage() {
               src={forOwnersBackgroundImage.src}
               srcSetData={{
                 srcSet: forOwnersBackgroundImage.srcSet,
-                sizes: "30vw",
+                sizes: "60vw",
               }}
               placeholder={forOwnersBackgroundImage.placeholder}
             >
