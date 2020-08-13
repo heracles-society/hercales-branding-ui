@@ -1,0 +1,162 @@
+@use "@styles/base";
+@use "@styles/helpers/_mixins";
+@use "@styles/helpers/_variables";
+@use "@styles/components/_buttons";
+@import "include-media/dist/_include-media";
+
+@mixin footer-title {
+  position: relative;
+  font-weight: bold;
+  font-size: variables.$font-size-5;
+  line-height: variables.$font-size-6;
+  margin-bottom: variables.$spacing-6;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: variables.$spacing-6;
+    height: variables.$spacing-1;
+    top: calc(100% + #{variables.$spacing-2});
+    left: 0;
+    background-color: variables.$red;
+  }
+}
+
+@mixin footer-links {
+  a {
+    text-decoration: none;
+    color: base.$aqua-22;
+    line-height: variables.$spacing-5;
+  }
+  a:visited {
+    color: base.$aqua-18;
+  }
+
+  a:hover {
+    color: base.$grey-5;
+  }
+
+  a:active,
+  a:focus {
+    outline: none;
+    border-bottom: 2px solid variables.$primary;
+  }
+}
+
+.wrapper {
+  position: relative;
+  min-height: variables.$spacing-13;
+  background-color: variables.$black;
+}
+
+.nav-links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: stretch;
+  align-items: stretch;
+  padding-left: variables.$spacing-6;
+  padding-right: variables.$spacing-6;
+  padding-top: variables.$spacing-6;
+
+  font-family: base.$font-family-content-2;
+  font-size: variables.$font-size-5;
+
+  color: variables.$white;
+  margin-bottom: variables.$spacing-6;
+
+  & > .contact-us,
+  & > .logo {
+    flex: 1;
+  }
+
+  & > .menu,
+  & > .follow-us {
+    flex: 0 0 25%;
+  }
+
+  @include media("<tablet") {
+    padding-left: variables.$spacing-4;
+    padding-right: variables.$spacing-4;
+    padding-top: variables.$spacing-4;
+
+    & > .logo {
+      display: none;
+    }
+
+    & > .menu,
+    & > .follow-us,
+    & > .contact-us {
+      flex-basis: 100%;
+    }
+  }
+
+  @include media(">=tablet", "<desktop") {
+    padding-left: variables.$spacing-4;
+    padding-right: variables.$spacing-4;
+    padding-top: variables.$spacing-4;
+
+    & > .logo {
+      display: none;
+    }
+
+    & > .menu,
+    & > .follow-us {
+      flex-basis: 50%;
+    }
+
+    & > .contact-us {
+      flex-basis: 100%;
+    }
+  }
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: variables.$spacing-3;
+}
+
+.menu,
+.follow-us {
+  padding: variables.$spacing-3;
+  h5 {
+    @include footer-title;
+  }
+
+  ul {
+    list-style: none;
+  }
+  @include footer-links;
+}
+
+.contact-us {
+  padding: variables.$spacing-3;
+  h5 {
+    @include footer-title;
+    span {
+      color: variables.$red;
+      font-size: variables.$font-size-5;
+    }
+  }
+
+  address {
+    @include footer-links;
+    display: flex;
+    flex-direction: column;
+    font-size: variables.$font-size-4;
+    line-height: variables.$font-size-5;
+    * + * {
+      margin-top: variables.$spacing-2;
+    }
+  }
+}
+
+.copyright {
+  font-family: base.$font-family-content-2;
+  font-size: variables.$font-size-3;
+  line-height: variables.$font-size-12;
+  color: variables.$grey;
+  text-align: center;
+}

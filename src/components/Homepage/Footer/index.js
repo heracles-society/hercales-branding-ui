@@ -2,16 +2,17 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import ProgressiveImage from "react-progressive-image"
 import * as constants from "../../../constants"
+import styles from "./Footer.module.scss"
 
 const LogoImage = require("@images/logo.png?placeholder=true&resize&format=webp")
 
 export default function Footer() {
   return (
-    <motion.div>
-      <footer className="site-footer">
-        <div className="wrapper">
-          <div className="section">
-            <div className="logo">
+    <motion.footer className={styles["wrapper"]}>
+      <section className={styles["nav-links"]}>
+        <div className={styles["logo"]}>
+          <Link href="/">
+            <a>
               <ProgressiveImage
                 src={LogoImage.src}
                 srcSetData={{
@@ -21,133 +22,107 @@ export default function Footer() {
               >
                 {(src, _loading, srcSetData) => (
                   <>
-                    <motion.img src={src} srcSet={srcSetData.srcSet} sizes="8rem, 8rem" alt="logo" />
+                    <motion.img src={src} srcSet={srcSetData.srcSet} sizes="8rem" alt="logo" />
                   </>
                 )}
               </ProgressiveImage>
-            </div>
-            <div
-              style={{
-                marginLeft: "-2rem",
-                width: "80%",
-                lineHeight: "1.5rem",
-                textDecoration: "none",
-                marginBottom: "28px",
-                color: "white",
-              }}
-            >
-              Need more information, chat with HERACLES support team or click on REQUEST DEMO.
-            </div>
-            <div
-              style={{
-                marginLeft: "-2rem",
-                width: "80%",
-                lineHeight: "1.5rem",
-                textDecoration: "none",
-                marginBottom: "28px",
-                color: "white",
-              }}
-            >
-              Tel: +91-9599015901
-            </div>
-            <div
-              style={{
-                marginLeft: "-2rem",
-                width: "80%",
-                lineHeight: "1.5rem",
-                textDecoration: "none",
-                marginBottom: "28px",
-                color: "white",
-              }}
-            >
-              mail to: heraclesteam2020@gmail.com
-            </div>
-          </div>
-          <div className="section">
-            <div style={{ fontSize: "1.5rem", textDecoration: "none", textTransform: "uppercase", color: "white" }}>
-              <bold>Menu</bold>
-            </div>
-            <div>
-              <Link href="/">
-                <a style={{ textdecoration: "none" }}>Home</a>
+            </a>
+          </Link>
+        </div>
+        <nav className={styles["menu"]}>
+          <h5>Menu</h5>
+          <ul>
+            <li>
+              <Link href="/" prefetch={false}>
+                <a>Home</a>
               </Link>
-            </div>
-            <div>
-              <Link href="/about-us">
+            </li>
+            <li>
+              <Link href="/about-us" prefetch={false}>
                 <a>About us</a>
               </Link>
-            </div>
-            <div>
-              <Link href="/why-us">
+            </li>
+            <li>
+              <Link href="/why-us" prefetch={false}>
                 <a>Why us</a>
               </Link>
-            </div>
-            <div>
-              <Link href="/service">
+            </li>
+            <li>
+              <Link href="/service" prefetch={false}>
                 <a>Services</a>
               </Link>
-            </div>
-            <div>
-              <Link href="/pricing">
+            </li>
+            <li>
+              <Link href="/pricing" prefetch={false}>
                 <a>Pricing</a>
               </Link>
-            </div>
-            <div>
-              <Link href="/contact-us">
+            </li>
+            <li>
+              <Link href="/contact-us" prefetch={false}>
                 <a>Contact Us</a>
               </Link>
-            </div>
-            <div>
-              <div>Request Demo</div>
-            </div>
-          </div>
-
-          <div className="section">
-            <div style={{ fontSize: "1.5rem", textDecoration: "none", textTransform: "uppercase", color: "white" }}>
-              <bold>Contact us</bold>
-            </div>
-            <address>{constants.ADDRESS_2}</address>
-            <address>{constants.ADDRESS_1}</address>
-          </div>
-
-          <div className="section" style={{ marginLeft: "13rem" }}>
-            <div style={{ fontSize: "1.5rem", textDecoration: "none", textTransform: "uppercase", color: "white" }}>
-              <bold>Follow us</bold>
-            </div>
-            <div>
-              <div>Instagram</div>
-            </div>
-            <div>
-              <div>Facebook</div>
-            </div>
-            <div>
-              <div>Twitter</div>
-            </div>
-            <div style={{ fontSize: "1.5rem", textDecoration: "none", textTransform: "uppercase", color: "white" }}>
-              <bold>Policy</bold>
-            </div>
-            <div>
-              <Link href="/privacy-policy">
+            </li>
+            <li>
+              <Link href="/contact-us" prefetch={false}>
+                <a>Request Demo</a>
+              </Link>
+            </li>
+          </ul>
+        </nav>
+        <nav className={styles["follow-us"]}>
+          <h5>Follow us</h5>
+          <ul>
+            <li>
+              <Link href="/">
+                <a>Instagram</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/">
+                <a>Facebook</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/">
+                <a>Twitter</a>
+              </Link>
+            </li>
+            <li>
+              <Link href="/privacy-policy" prefetch={false}>
                 <a>Privacy Policy</a>
               </Link>
-            </div>
-            <div>
-              <Link href="/disclaimer">
+            </li>
+            <li>
+              <Link href="/disclaimer" prefetch={false}>
                 <a>Diclaimer</a>
               </Link>
-            </div>
-            <div>
-              <Link href="/terms-and-conditions">
+            </li>
+            <li>
+              <Link href="/terms-and-conditions" prefetch={false}>
                 <a>Terms and Conditions</a>
               </Link>
-            </div>
-          </div>
-
-          <div className="copyright">
-            Copyright © 2020 Heracles India Private Limited - All Rights Reserved. - P.IVA 01287901217
-          </div>
+            </li>
+          </ul>
+        </nav>
+        <div className={styles["contact-us"]}>
+          <h5>
+            Reach us <span>@</span>
+          </h5>
+          <address>
+            <a rel="noreferrer" target="_blank" href="tel:+919599015901">
+              Tel: +91-9599015901
+            </a>
+            <a rel="noreferrer" target="_blank" href="mailto:heraclesteam2020@gmail.com">
+              heraclesteam2020@gmail.com
+            </a>
+            <div>{constants.ADDRESS_2}</div>
+            <div>{constants.ADDRESS_1}</div>
+          </address>
         </div>
-      </footer>
-    </motion.div>
+      </section>
+      <div className={styles["copyright"]}>
+        Copyright © 2020 Heracles India Private Limited - All Rights Reserved. - P.IVA 01287901217
+      </div>
+    </motion.footer>
   )
 }
