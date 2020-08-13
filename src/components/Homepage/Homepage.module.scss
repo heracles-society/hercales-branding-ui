@@ -55,17 +55,17 @@
 
   @include media("<=phone") {
     margin-left: variables.$spacing-3;
-    width: calc(100% - #{variables.$spacing-3});
+    width: calc(100% - #{variables.$spacing-2 +variables.$spacing-3});
   }
 
   @include media(">phone", "<=tablet") {
     margin-left: variables.$spacing-5;
-    width: calc(100% - #{variables.$spacing-5});
+    width: calc(100% - #{variables.$spacing-2 +variables.$spacing-5});
   }
 
   @include media(">tablet", "<=desktop") {
     margin-left: variables.$spacing-8;
-    width: calc(100% - #{variables.$spacing-8});
+    width: calc(100% - #{variables.$spacing-2 +variables.$spacing-8});
   }
 
   h1 {

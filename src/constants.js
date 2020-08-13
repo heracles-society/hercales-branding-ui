@@ -49,6 +49,12 @@ export const MANAGER_SUBTITLE = "Let Heracles lend a hand in managing everything
 export const MANAGER_DESC =
   "Easy to handle new onboarding request, generate bills for respective user, notifiy society with real time notification, provide access to user, handle security system."
 
+// Renters Component
+export const RENTER_TITLE = "We know renting is hard. We'll make it easy for you"
+export const RENTER_SUBTITLE = "Let Heracles lend a hand in managing everything for you."
+export const RENTER_DESC =
+  "Easy to handle new onboarding request, generate bills for respective user, notifiy society with real time notification, provide access to user, handle security system."
+
 // Contact Us constant
 export const TITLE = "Get in Touch"
 export const SUB_TITILE = "Please fill out the quick form and we will in touch with lightening speed."

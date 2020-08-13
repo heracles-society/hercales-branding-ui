@@ -67,14 +67,14 @@
     margin-bottom: variables.$spacing-8;
     width: 50%;
     @include media("<=phone") {
-      width: calc(100% - #{variables.$spacing-3});
+      width: calc(100% - #{variables.$spacing-2 +variables.$spacing-3});
       margin-left: variables.$spacing-3;
       margin-bottom: variables.$spacing-5;
       font-size: variables.$font-size-6;
     }
 
     @include media(">phone", "<=tablet") {
-      width: calc(100% - #{variables.$spacing-5});
+      width: calc(100% - #{variables.$spacing-2 +variables.$spacing-5});
       margin-left: variables.$spacing-5;
       margin-bottom: variables.$spacing-5;
       font-size: variables.$font-size-6;
@@ -91,12 +91,12 @@
     width: 33%;
     margin-left: 50%;
     @include media("<=phone") {
-      width: calc(100% - #{variables.$spacing-3});
+      width: calc(100% - #{variables.$spacing-2 +variables.$spacing-3});
       margin-left: variables.$spacing-3;
     }
 
     @include media(">phone", "<=tablet") {
-      width: calc(100% - #{variables.$spacing-6});
+      width: calc(100% - #{variables.$spacing-2 +variables.$spacing-6});
       margin-left: variables.$spacing-5;
     }
   }

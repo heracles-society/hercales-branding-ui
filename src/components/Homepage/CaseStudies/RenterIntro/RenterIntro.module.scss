@@ -7,28 +7,46 @@
 .wrapper {
   position: relative;
   min-height: variables.$spacing-13;
+  margin-bottom: variables.$spacing-7;
 
   @include media(">tablet") {
     min-height: 100vh;
+    margin-bottom: variables.$spacing-11;
   }
 }
 
-.for-home-owners {
+.for-renters {
   padding-top: variables.$spacing-6;
   position: relative;
 }
 
 .header-wrapper {
   font-family: base.$font-family-content-2;
+  margin-top: variables.$spacing-6;
+  @include media("<=phone") {
+    margin-bottom: variables.$spacing-5;
+  }
+
+  @include media(">phone", "<=tablet") {
+    margin-bottom: variables.$spacing-7;
+  }
+
+  @include media(">tablet", "<=desktop") {
+    margin-bottom: variables.$spacing-8;
+  }
+
+  @include media(">desktop") {
+    margin-bottom: variables.$spacing-9;
+  }
 
   h2 {
+    width: 200px;
     position: relative;
     font-size: variables.$font-size-6;
     line-height: variables.$font-size-6;
-    margin-left: 75%;
-    margin-bottom: variables.$spacing-5;
-    width: 220px;
-    color: base.$grey-24;
+    margin: 0 0 variables.$spacing-5 variables.$spacing-10;
+    color: variables.$white;
+    mix-blend-mode: exclusion;
     @include media("<=phone") {
       font-size: variables.$font-size-4;
       line-height: variables.$font-size-4;
@@ -42,14 +60,12 @@
     }
 
     @include media(">tablet", "<=desktop") {
-      margin-top: variables.$spacing-7;
-      margin-left: 70%;
-      color: variables.$white;
+      width: 320px;
+      margin-left: variables.$spacing-6;
     }
 
     @include media(">desktop") {
-      margin-top: variables.$spacing-7;
-      color: variables.$white;
+      width: 320px;
     }
 
     &::after {
@@ -59,67 +75,44 @@
       height: 10px;
       top: calc(100% + #{variables.$spacing-2});
       left: 0;
-      background-color: base.$red-5;
-      @include media(">tablet") {
-        background-color: variables.$red;
-      }
+      background-color: base.$yellow-8;
     }
   }
 }
 .article-wrapper {
-  padding-top: variables.$spacing-8;
-
-  @include media("<=phone") {
-    padding-top: variables.$spacing-4;
-  }
-
-  @include media(">phone", "<=tablet") {
-    padding-top: variables.$spacing-5;
-  }
-
-  @include media(">tablet", "<=desktop") {
-    padding-top: variables.$spacing-7;
-  }
-
-  .article-background {
-    @include mixins.absolute-full;
-    z-index: -2;
-    background-color: darken(variables.$primary, 10);
-
-    @include media(">desktop") {
-      left: variables.$spacing-9;
-    }
-  }
-
   h3 {
+    font-style: italic;
+    font-weight: 400;
     color: variables.$white;
     font-family: base.$font-family-content-2;
-    font-size: variables.$font-size-5;
-    line-height: variables.$font-size-6;
-    margin-left: variables.$spacing-12;
-    margin-bottom: variables.$spacing-9;
-    width: 40%;
+    font-size: variables.$font-size-9;
+    margin-left: 43%;
+    margin-bottom: variables.$spacing-8;
+    width: 50%;
     @include media("<=phone") {
       width: calc(100% - #{variables.$spacing-2 +variables.$spacing-3});
       margin-left: variables.$spacing-3;
       margin-bottom: variables.$spacing-5;
-      font-size: variables.$font-size-4;
-      line-height: variables.$font-size-5;
+      font-size: variables.$font-size-6;
     }
 
     @include media(">phone", "<=tablet") {
       width: calc(100% - #{variables.$spacing-2 +variables.$spacing-5});
       margin-left: variables.$spacing-5;
       margin-bottom: variables.$spacing-5;
+      font-size: variables.$font-size-6;
     }
 
     @include media(">tablet", "<=desktop") {
-      margin-bottom: variables.$spacing-8;
+      font-size: variables.$font-size-6;
+      margin-bottom: variables.$spacing-7;
     }
   }
-  .details {
-    width: 45%;
-    margin-left: variables.$spacing-11;
+
+  .details,
+  .features {
+    width: 33%;
+    margin-left: 50%;
     @include media("<=phone") {
       width: calc(100% - #{variables.$spacing-2 +variables.$spacing-3});
       margin-left: variables.$spacing-3;
@@ -129,45 +122,41 @@
       width: calc(100% - #{variables.$spacing-2 +variables.$spacing-6});
       margin-left: variables.$spacing-5;
     }
+  }
 
-    @include media(">tablet", "<=desktop") {
-      margin-left: variables.$spacing-8;
-      width: 50%;
-    }
-
+  .details {
     p {
       text-rendering: optimizeLegibility;
+      font-weight: lighter;
       color: variables.$white;
-      font-family: base.$font-family-title;
-      font-style: italic;
-      font-size: variables.$font-size-7;
-      line-height: variables.$font-size-8;
-      margin-bottom: variables.$spacing-7;
+      font-family: base.$font-family-content-2;
+      font-size: variables.$font-size-5;
+      margin-bottom: variables.$spacing-8;
       @include media("<=phone") {
         font-weight: normal;
-        font-style: normal;
         line-height: variables.$font-size-4;
+        font-family: base.$font-family-content-1;
         font-size: variables.$font-size-3;
         margin-bottom: variables.$spacing-5;
       }
 
       @include media(">phone", "<=tablet") {
         font-weight: normal;
-        font-style: normal;
         line-height: variables.$font-size-4;
+        font-family: base.$font-family-content-1;
         font-size: variables.$font-size-3;
-        margin-bottom: variables.$spacing-5;
+        margin-bottom: variables.$spacing-6;
       }
 
       @include media(">tablet", "<=desktop") {
-        font-size: variables.$font-size-6;
+        font-size: variables.$font-size-4;
         margin-bottom: variables.$spacing-7;
       }
     }
 
     button {
       @include buttons.two-layer-drape-button;
-      margin-bottom: variables.$spacing-10;
+      margin-bottom: variables.$spacing-8;
       color: variables.$white;
       border-color: variables.$white;
       background-color: transparent;
@@ -192,35 +181,40 @@
       }
 
       @include media(">tablet", "<=desktop") {
-        margin-left: variables.$spacing-7;
+        margin-left: variables.$spacing-6;
       }
 
       @include media(">desktop") {
-        margin-left: variables.$spacing-9;
+        margin-left: variables.$spacing-7;
       }
     }
   }
 }
 
 .image-wrapper {
-  position: absolute;
-  top: variables.$spacing-7;
-  right: 5%;
+  @include mixins.absolute-full;
   z-index: -1;
-  width: 350px;
-  height: 90%;
-  @include media("<=tablet") {
-    display: none;
-  }
 
-  picture,
-  img {
+  .scene {
     height: 100%;
-    width: 100%;
-  }
-  img {
-    filter: grayscale(100%);
-    object-fit: cover;
-    object-position: left;
+    background: variables.$primary;
+    @include media("<tablet") {
+      filter: blur(1px) brightness(0.3);
+    }
+    path:first-child {
+      fill: variables.$secondary;
+    }
+
+    path:nth-child(2) {
+      fill: variables.$black;
+    }
+
+    path:nth-child(3) {
+      fill: variables.$red;
+    }
+
+    path:nth-child(4) {
+      fill: variables.$blue;
+    }
   }
 }

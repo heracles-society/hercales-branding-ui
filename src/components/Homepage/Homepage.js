@@ -14,8 +14,8 @@ import Header from "./Header"
 import Footer from "./Footer"
 import BuilderIntro from "./CaseStudies/BuilderIntro"
 import HomeOwnerIntro from "./CaseStudies/HomeOwnerIntro"
-import SecurityProviderIntro from "./CaseStudies/SecurityProvisionIntro/for-security"
-import SocietyManagementPage from "./CaseStudies/SocietyManagementIntro/for-society-manager"
+import SecurityProviderIntro from "./CaseStudies/SecurityProvisionIntro"
+import RenterIntro from "./CaseStudies/RenterIntro"
 
 const siteHeroImage = require("@images/site-hero-image.jpg?placeholder=true&resize&format=webp")
 
@@ -81,7 +81,7 @@ export default function HomePage() {
               <BuilderIntro />
               <HomeOwnerIntro />
               <SecurityProviderIntro />
-              <SocietyManagementPage />
+              <RenterIntro />
             </main>
             <Footer />
           </div>
