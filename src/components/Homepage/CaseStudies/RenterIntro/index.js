@@ -12,7 +12,7 @@ export default function RenterIntro() {
     pathFour: Math.floor(Math.random() * 10 + 5),
   })
   return (
-    <motion.div>
+    <motion.div className={styles["wrapper"]}>
       <section className={styles["for-renters"]}>
         <header className={styles["header-wrapper"]}>
           <h2>{constants.RENTER_TITLE}</h2>

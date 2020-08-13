@@ -1,0 +1,186 @@
+@use "@styles/base";
+@use "@styles/helpers/_mixins";
+@use "@styles/helpers/_variables";
+@use "@styles/components/_buttons";
+@import "include-media/dist/_include-media";
+
+.wrapper {
+  position: relative;
+  min-height: variables.$spacing-13;
+  margin-bottom: variables.$spacing-7;
+
+  @include media(">tablet") {
+    min-height: 100vh;
+    margin-bottom: variables.$spacing-11;
+  }
+}
+
+.for-security-provision {
+  padding-top: variables.$spacing-6;
+  position: relative;
+}
+
+.header-wrapper {
+  font-family: base.$font-family-content-2;
+
+  h2 {
+    position: relative;
+    font-size: variables.$font-size-6;
+    line-height: variables.$font-size-6;
+    margin: 0 0 variables.$spacing-5 variables.$spacing-10;
+    width: 220px;
+    color: base.$grey-17;
+    @include media("<=phone") {
+      font-size: variables.$font-size-4;
+      line-height: variables.$font-size-4;
+      margin-left: variables.$spacing-3;
+    }
+
+    @include media(">phone", "<=tablet") {
+      font-size: variables.$font-size-5;
+      line-height: variables.$font-size-5;
+      margin-left: variables.$spacing-5;
+    }
+
+    @include media(">tablet", "<=desktop") {
+      margin-left: variables.$spacing-6;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 50%;
+      height: 10px;
+      top: calc(100% + #{variables.$spacing-2});
+      left: 0;
+      background-color: variables.$red;
+    }
+  }
+}
+.article-wrapper {
+  h3 {
+    font-style: italic;
+    font-weight: 400;
+    font-family: base.$font-family-content-2;
+    font-size: variables.$font-size-9;
+    margin-left: 43%;
+    margin-bottom: variables.$spacing-8;
+    width: 50%;
+    @include media("<=phone") {
+      width: calc(100% - #{variables.$spacing-2 +variables.$spacing-3});
+      margin-left: variables.$spacing-3;
+      margin-bottom: variables.$spacing-5;
+      font-size: variables.$font-size-6;
+    }
+
+    @include media(">phone", "<=tablet") {
+      width: calc(100% - #{variables.$spacing-2 +variables.$spacing-5});
+      margin-left: variables.$spacing-5;
+      margin-bottom: variables.$spacing-5;
+      font-size: variables.$font-size-6;
+    }
+
+    @include media(">tablet", "<=desktop") {
+      font-size: variables.$font-size-6;
+      margin-bottom: variables.$spacing-7;
+    }
+  }
+
+  .details,
+  .features {
+    width: 33%;
+    margin-left: 50%;
+    @include media("<=phone") {
+      width: calc(100% - #{variables.$spacing-2 +variables.$spacing-3});
+      margin-left: variables.$spacing-3;
+    }
+
+    @include media(">phone", "<=tablet") {
+      width: calc(100% - #{variables.$spacing-2 +variables.$spacing-6});
+      margin-left: variables.$spacing-5;
+    }
+  }
+
+  .details {
+    p {
+      text-rendering: optimizeLegibility;
+      font-weight: lighter;
+      color: base.$grey-24;
+      font-family: base.$font-family-content-2;
+      font-size: variables.$font-size-5;
+      margin-bottom: variables.$spacing-7;
+      @include media("<=phone") {
+        font-weight: normal;
+        line-height: variables.$font-size-4;
+        font-family: base.$font-family-content-1;
+        font-size: variables.$font-size-3;
+        margin-bottom: variables.$spacing-5;
+      }
+
+      @include media(">phone", "<=tablet") {
+        font-weight: normal;
+        line-height: variables.$font-size-4;
+        font-family: base.$font-family-content-1;
+        font-size: variables.$font-size-3;
+        margin-bottom: variables.$spacing-5;
+      }
+
+      @include media(">tablet", "<=desktop") {
+        font-size: variables.$font-size-4;
+        margin-bottom: variables.$spacing-5;
+      }
+    }
+
+    a {
+      display: inline-block;
+      color: variables.$primary;
+      text-decoration: none;
+      font-family: base.$font-family-content-2;
+      font-size: variables.$font-size-4;
+      line-height: variables.$font-size-7;
+      max-width: variables.$spacing-13;
+      margin: 0 variables.$spacing-5 variables.$spacing-5 0;
+      @include media("<=phone") {
+        font-size: variables.$font-size-4;
+      }
+      @include media(">phone", "<=desktop") {
+        font-size: variables.$font-size-5;
+      }
+    }
+  }
+
+  .features {
+    ul {
+      list-style: disc inside;
+      color: base.$grey-15;
+      font-family: base.$font-family-content-2;
+      font-size: variables.$font-size-3;
+      line-height: variables.$font-size-5;
+    }
+  }
+}
+.background-wrapper {
+  position: absolute;
+  top: variables.$spacing-10;
+  left: 0;
+  z-index: -1;
+  width: 35%;
+  max-height: 700px;
+  @include media("<=tablet") {
+    display: none;
+  }
+
+  @include media(">tablet") {
+    height: 100%;
+  }
+
+  picture,
+  img {
+    height: 90%;
+    width: 100%;
+  }
+  img {
+    object-fit: cover;
+    object-position: 50% 50%;
+  }
+}
