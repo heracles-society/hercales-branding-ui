@@ -44,6 +44,15 @@ function MyApp({ Component, pageProps }) {
   const [initialRenderComplete, setInitialRenderComplete] = useState(false)
 
   useEffect(() => {
+    /**
+     * Do feature detection, to figure out which polyfills needs to be imported.
+     **/
+    if (typeof window.IntersectionObserver === "undefined") {
+      import("intersection-observer")
+    }
+  }, [])
+
+  useEffect(() => {
     const handleStart = () => setLoading(true)
     const handleComplete = () => setTimeout(() => setLoading(false), 600)
 
