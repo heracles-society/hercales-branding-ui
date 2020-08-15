@@ -22,28 +22,32 @@
 
 .header-wrapper {
   font-family: base.$font-family-content-2;
+  overflow: hidden;
 
   h2 {
     position: relative;
     font-size: variables.$font-size-6;
     line-height: variables.$font-size-6;
-    margin: 0 0 variables.$spacing-5 variables.$spacing-10;
+    margin: 0 0 variables.$spacing-7 variables.$spacing-10;
     width: 220px;
     color: base.$grey-17;
     @include media("<=phone") {
       font-size: variables.$font-size-4;
       line-height: variables.$font-size-4;
       margin-left: variables.$spacing-3;
+      margin-bottom: variables.$spacing-4;
     }
 
     @include media(">phone", "<=tablet") {
       font-size: variables.$font-size-5;
       line-height: variables.$font-size-5;
       margin-left: variables.$spacing-5;
+      margin-bottom: variables.$spacing-5;
     }
 
     @include media(">tablet", "<=desktop") {
       margin-left: variables.$spacing-6;
+      margin-bottom: variables.$spacing-6;
     }
 
     &::after {
@@ -58,6 +62,7 @@
   }
 }
 .article-wrapper {
+  overflow: hidden;
   h3 {
     font-style: italic;
     font-weight: 400;
@@ -66,6 +71,11 @@
     margin-left: 43%;
     margin-bottom: variables.$spacing-8;
     width: 50%;
+
+    span {
+      display: inline-block;
+    }
+
     @include media("<=phone") {
       width: calc(100% - #{variables.$spacing-2 +variables.$spacing-3});
       margin-left: variables.$spacing-3;
