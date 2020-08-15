@@ -1,12 +1,12 @@
 import { motion } from "framer-motion"
-import Footer from "../components/footer"
-import HeaderPage from "../components/header"
-import * as constants from "../constants"
+import Footer from "@components/Navigation/Footer"
+import Header from "@components/Navigation/Header"
+import * as constants from "@constants"
 
 export default function AboutUs() {
   return (
     <motion.div>
-      <HeaderPage isHomePage={false} />
+      <Header isHomePage={false} />
       <div className="about-us">
         <div className="header">
           <div className="wrapper">

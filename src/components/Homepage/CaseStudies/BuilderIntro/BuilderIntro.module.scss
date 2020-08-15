@@ -73,7 +73,7 @@
     width: 50%;
 
     span {
-      display: inline-block;
+      display: block;
     }
 
     @include media("<=phone") {

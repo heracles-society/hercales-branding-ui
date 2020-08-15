@@ -10,8 +10,9 @@ import classNames from "classnames"
 import useSmoothScrollbar from "@hooks/use-smooth-scrollbar"
 import * as constants from "@constants"
 
-import Header from "./Header"
-import Footer from "./Footer"
+import Header from "@components/Navigation/Header"
+import Footer from "@components/Navigation/Footer"
+
 import BuilderIntro from "./CaseStudies/BuilderIntro"
 import HomeOwnerIntro from "./CaseStudies/HomeOwnerIntro"
 import SecurityProviderIntro from "./CaseStudies/SecurityProvisionIntro"
