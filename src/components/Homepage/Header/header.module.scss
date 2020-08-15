@@ -4,6 +4,7 @@
 @import "include-media/dist/_include-media";
 
 .site-hamburger-menu {
+  mix-blend-mode: exclusion;
   z-index: variables.$z-index-2;
   position: fixed;
   top: 0;
@@ -15,6 +16,7 @@
 }
 
 .site-nav {
+  mix-blend-mode: exclusion;
   z-index: variables.$z-index-2;
   position: absolute;
   top: 0;

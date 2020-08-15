@@ -66,6 +66,17 @@
     }
   }
 }
+
+.article-background {
+  @include mixins.absolute-full;
+  z-index: -2;
+  background-color: darken(variables.$primary, 10);
+
+  @include media(">desktop") {
+    left: variables.$spacing-9;
+  }
+}
+
 .article-wrapper {
   padding-top: variables.$spacing-8;
 
@@ -79,16 +90,6 @@
 
   @include media(">tablet", "<=desktop") {
     padding-top: variables.$spacing-7;
-  }
-
-  .article-background {
-    @include mixins.absolute-full;
-    z-index: -2;
-    background-color: darken(variables.$primary, 10);
-
-    @include media(">desktop") {
-      left: variables.$spacing-9;
-    }
   }
 
   h3 {
@@ -118,7 +119,7 @@
     }
   }
   .details {
-    width: 45%;
+    width: 35%;
     margin-left: variables.$spacing-11;
     @include media("<=phone") {
       width: calc(100% - #{variables.$spacing-2 +variables.$spacing-3});
@@ -140,8 +141,8 @@
       color: variables.$white;
       font-family: base.$font-family-title;
       font-style: italic;
-      font-size: variables.$font-size-7;
-      line-height: variables.$font-size-8;
+      font-size: variables.$font-size-6;
+      line-height: variables.$font-size-7;
       margin-bottom: variables.$spacing-7;
       @include media("<=phone") {
         font-weight: normal;

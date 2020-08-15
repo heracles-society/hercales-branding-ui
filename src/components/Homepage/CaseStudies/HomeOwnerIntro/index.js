@@ -1,29 +1,62 @@
 import Link from "next/link"
 import ProgressiveImage from "react-progressive-image"
-import { motion } from "framer-motion"
+import { motion, useAnimation } from "framer-motion"
+import { useInView } from "react-intersection-observer"
 import styles from "./HomeOwnerIntro.module.scss"
 import * as constants from "@constants"
+import { useEffect } from "react"
 
 const forOwnersBackgroundImage = require("@images/for-owners-image.jpg?placeholder=true&resize&format=webp")
 
+const slideRevealVariants = {
+  right: {
+    initial: { clipPath: "inset(-20px 100% -20px 0%)" },
+    animate: { clipPath: "inset(-20px 0% -20px 0%)" },
+  },
+  left: {
+    initial: { clipPath: "inset(-20px 0% -20px 100%)" },
+    animate: { clipPath: "inset(-20px 0% -20px 0%)" },
+  },
+  up: {
+    initial: { opacity: 0, y: "60px" },
+    animate: { opacity: 1, y: "0" },
+  },
+}
+
 export default function ForHomeOwnersPage() {
+  const control = useAnimation()
+  const [ref, inView] = useInView({
+    rootMargin: "-25% 0px",
+    threshold: 0.2,
+    triggerOnce: true,
+  })
+
+  useEffect(() => {
+    if (inView) {
+      control.start("animate")
+    }
+  }, [inView])
+
   return (
-    <motion.section className={styles["wrapper"]}>
-      <div className={styles["for-home-owners"]}>
-        <header className={styles["header-wrapper"]}>
-          <h2>{constants.OWNER_TITLE}</h2>
-        </header>
-        <article className={styles["article-wrapper"]}>
-          <div className={styles["article-background"]}></div>
-          <h3>{constants.OWNER_SUBTITLE}</h3>
-          <div className={styles["details"]}>
-            <p>{constants.OWNER_DESCRIPTION}</p>
-            <Link href="/for-home-owners">
-              <button>Know more</button>
-            </Link>
-          </div>
-        </article>
-        <div className={styles["image-wrapper"]}>
+    <motion.section ref={ref} animate={control} className={styles["wrapper"]}>
+      <motion.div
+        initial="initial"
+        variants={slideRevealVariants.up}
+        transition={{ duration: 0.1, staggerChildren: 0.4 }}
+        className={styles["for-home-owners"]}
+      >
+        <motion.div
+          className={styles["article-background"]}
+          initial="initial"
+          transition={{ ease: constants.easingValues["ease-1"], duration: 1.5 }}
+          variants={slideRevealVariants.right}
+        />
+        <motion.div
+          className={styles["image-wrapper"]}
+          initial="initial"
+          transition={{ ease: constants.easingValues["ease-1"], duration: 0.6 }}
+          variants={slideRevealVariants.left}
+        >
           <picture>
             <ProgressiveImage
               src={forOwnersBackgroundImage.src}
@@ -40,8 +73,46 @@ export default function ForHomeOwnersPage() {
               )}
             </ProgressiveImage>
           </picture>
-        </div>
-      </div>
+        </motion.div>
+
+        <header className={styles["header-wrapper"]}>
+          <motion.h2
+            transition={{ ease: constants.easingValues["ease-1"], duration: 1 }}
+            variants={slideRevealVariants.up}
+            initial="initial"
+          >
+            {constants.OWNER_TITLE}
+          </motion.h2>
+        </header>
+        <article className={styles["article-wrapper"]}>
+          <motion.h3
+            className={styles["article-title"]}
+            transition={{ ease: constants.easingValues["ease-1"], duration: 1.5 }}
+            initial="initial"
+            variants={slideRevealVariants.right}
+          >
+            {constants.OWNER_SUBTITLE}
+          </motion.h3>
+          <div className={styles["details"]}>
+            <motion.p
+              variants={slideRevealVariants.right}
+              transition={{ ease: constants.easingValues["ease-2"], duration: 1 }}
+              initial="initial"
+            >
+              {constants.OWNER_DESCRIPTION}
+            </motion.p>
+            <Link href="/for-home-owners">
+              <motion.button
+                variants={slideRevealVariants.right}
+                transition={{ ease: constants.easingValues["ease-2"], duration: 0.5 }}
+                initial="initial"
+              >
+                Know more
+              </motion.button>
+            </Link>
+          </div>
+        </article>
+      </motion.div>
     </motion.section>
   )
 }

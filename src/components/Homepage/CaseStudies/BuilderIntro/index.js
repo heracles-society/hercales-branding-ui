@@ -22,7 +22,9 @@ const textSlideUpVariants = {
 export default function ForBuildersPage() {
   const control = useAnimation()
   const [inViewRef, inView] = useInView({
-    rootMargin: "-300px 0px",
+    rootMargin: "-25% 0px",
+    threshold: 0.3,
+    triggerOnce: true,
   })
 
   useEffect(() => {
