@@ -5,8 +5,7 @@ import styles from "./Header.module.scss"
 
 import * as constants from "@constants"
 
-export default function Header(props) {
-  const { isHomePage } = props
+export default function Header() {
   return (
     <motion.div>
       <nav className={classNames(styles["site-hamburger-menu"])}></nav>
@@ -17,7 +16,7 @@ export default function Header(props) {
             return (
               <li className={classNames(styles["nav-list-item"])} key={index}>
                 <Link href={constants.NAV_LIST[nav]} prefetch={false}>
-                  <a style={{ color: isHomePage ? "white" : "black" }}>{nav}</a>
+                  <a>{nav}</a>
                 </Link>
               </li>
             )

@@ -1,3 +1,8 @@
+@use "@styles/base/_typography";
+@use "@styles/helpers/_mixins";
+@use "@styles/helpers/_variables";
+@import "include-media/dist/_include-media";
+
 .about-us {
   .header {
     width: 100vw;
@@ -69,7 +74,7 @@
         height: 20rem;
         top: 7rem;
         left: 5rem;
-        background: url("../../images/about-1.jpeg");
+        background: url(~@images/about-1.jpeg);
         background-size: cover;
       }
 
@@ -122,13 +127,13 @@
     margin-bottom: 5rem;
     height: auto;
     width: 100vw;
-    background: $black;
-    color: $white;
+    background: variables.$black;
+    color: variables.$white;
     .team-content {
       width: 78vw;
       max-width: 1220px;
       margin: 0 auto;
-      margin-top: $spacing-7;
+      margin-top: variables.$spacing-7;
 
       .key {
         letter-spacing: 2.8px;
