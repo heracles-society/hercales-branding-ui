@@ -100,16 +100,15 @@ export default function ForBuildersPage() {
             </motion.ul>
           </motion.div>
         </motion.article>
-        <motion.div
-          variants={{
-            initial: { y: "200px", opacity: 0 },
-            animate: { y: "100px", opacity: 1 },
-          }}
-          initial="initial"
-          transition={{ ease: constants.easingValues["ease-1"], duration: 1 }}
-          className={styles["background-wrapper"]}
-        >
-          <picture>
+        <div className={styles["background-wrapper"]}>
+          <motion.picture
+            variants={{
+              initial: { y: "200px", opacity: 0 },
+              animate: { y: "100px", opacity: 1 },
+            }}
+            initial="initial"
+            transition={{ ease: constants.easingValues["ease-1"], duration: 1 }}
+          >
             <ProgressiveImage
               src={forBuilderBackgroundImage.src}
               srcSetData={{
@@ -124,8 +123,8 @@ export default function ForBuildersPage() {
                 </>
               )}
             </ProgressiveImage>
-          </picture>
-        </motion.div>
+          </motion.picture>
+        </div>
       </div>
     </motion.section>
   )

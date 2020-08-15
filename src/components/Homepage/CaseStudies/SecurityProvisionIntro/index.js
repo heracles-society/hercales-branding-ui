@@ -98,13 +98,12 @@ export default function SecurityProvisionIntro() {
             </Link>
           </motion.div>
         </motion.article>
-        <motion.div
-          variants={slideRevealVariants.up}
-          initial="initial"
-          transition={{ ease: constants.easingValues["ease-1"], duration: 1 }}
-          className={styles["background-wrapper"]}
-        >
-          <picture>
+        <div className={styles["background-wrapper"]}>
+          <motion.picture
+            variants={slideRevealVariants.up}
+            initial="initial"
+            transition={{ ease: constants.easingValues["ease-1"], duration: 1 }}
+          >
             <ProgressiveImage
               src={forSecurityBackgroundImage.src}
               srcSetData={{
@@ -119,8 +118,8 @@ export default function SecurityProvisionIntro() {
                 </>
               )}
             </ProgressiveImage>
-          </picture>
-        </motion.div>
+          </motion.picture>
+        </div>
       </div>
     </motion.section>
   )
