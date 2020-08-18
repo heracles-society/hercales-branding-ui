@@ -4,7 +4,9 @@ import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer"
 import styles from "./HomeOwnerIntro.module.scss"
 import * as constants from "@constants"
-import { useEffect } from "react"
+import { useEffect, useContext, useRef } from "react"
+import { navigationContext } from "contexts/navigation-context"
+import useOverlapObserver from "@hooks/use-overlap-observer"
 
 const forOwnersBackgroundImage = require("@images/for-owners-image.jpg?placeholder=true&resize&format=webp")
 
@@ -23,9 +25,16 @@ const slideRevealVariants = {
   },
 }
 
-export default function ForHomeOwnersPage() {
+export default function ForHomeOwnersPage(props) {
   const control = useAnimation()
-  const [ref, inView] = useInView({
+  const backgroundRef = useRef()
+  const { navRef, dispatch: dispatchNavEvent } = useContext(navigationContext)
+
+  const isOverlaping = useOverlapObserver(backgroundRef, navRef, {
+    smoothScrollRef: props.scrollRef,
+  })
+
+  const [inViewRef, inView] = useInView({
     rootMargin: "-25% 0px",
     threshold: 0.2,
     triggerOnce: true,
@@ -37,8 +46,18 @@ export default function ForHomeOwnersPage() {
     }
   }, [inView])
 
+  useEffect(() => {
+    console.log(isOverlaping)
+    dispatchNavEvent({
+      type: "SET_THEME",
+      payload: {
+        theme: isOverlaping ? "dark" : "light",
+      },
+    })
+  }, [isOverlaping])
+
   return (
-    <motion.section ref={ref} animate={control} className={styles["wrapper"]}>
+    <motion.section ref={inViewRef} animate={control} className={styles["wrapper"]}>
       <motion.div
         initial="initial"
         variants={slideRevealVariants.up}
@@ -46,6 +65,7 @@ export default function ForHomeOwnersPage() {
         className={styles["for-home-owners"]}
       >
         <motion.div
+          ref={backgroundRef}
           className={styles["article-background"]}
           initial="initial"
           transition={{ ease: constants.easingValues["ease-1"], duration: 1.5 }}

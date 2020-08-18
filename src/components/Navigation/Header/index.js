@@ -1,28 +1,46 @@
-import Link from "next/link"
 import { motion } from "framer-motion"
 import classNames from "classnames"
 import styles from "./Header.module.scss"
 
-import * as constants from "@constants"
+import { useContext } from "react"
+import { navigationContext } from "contexts/navigation-context"
 
 export default function Header() {
+  const { navRef, state: navState } = useContext(navigationContext)
+  const { theme } = navState
   return (
-    <motion.div>
-      <nav className={classNames(styles["site-hamburger-menu"])}></nav>
-      <nav className={classNames(styles["site-nav"])}>
-        <div className={classNames(styles["site-logo"])}></div>
-        <ul className={classNames(styles["nav-list"])}>
-          {Object.keys(constants.NAV_LIST).map((nav, index) => {
-            return (
-              <li className={classNames(styles["nav-list-item"])} key={index}>
-                <Link href={constants.NAV_LIST[nav]} prefetch={false}>
-                  <a>{nav}</a>
-                </Link>
-              </li>
-            )
-          })}
-        </ul>
-      </nav>
-    </motion.div>
+    <nav
+      className={classNames({
+        [styles["burger-menu"]]: true,
+        [styles["burger-menu--dark"]]: theme === "dark",
+        [styles["burger-menu--light"]]: theme === "light",
+      })}
+    >
+      <div ref={navRef} className={styles["background"]}>
+        <motion.div className={styles["top"]}></motion.div>
+        <div className={styles["bottom"]}></div>
+      </div>
+      <div className={styles["menu-open"]}>
+        <div className={styles["line-wrap"]}>
+          <span className={styles["line"]} />
+        </div>
+        <div className={styles["line-wrap"]}>
+          <span className={styles["line"]} />
+        </div>
+        <div className={styles["line-wrap"]}>
+          <span className={styles["line"]} />
+        </div>
+      </div>
+      <div className={styles["menu-close"]}>
+        <span className={styles["line-1"]} />
+        <span className={styles["line-2"]} />
+      </div>
+      <div className={styles["menu-border"]}>
+        <div className={styles["border"]}></div>
+        <div className={styles["border"]}></div>
+        <div className={styles["border"]}></div>
+        <div className={styles["border"]}></div>
+      </div>
+    </nav>
   )
 }

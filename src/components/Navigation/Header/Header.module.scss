@@ -3,48 +3,146 @@
 @use "@styles/helpers/_variables";
 @import "include-media/dist/_include-media";
 
-.site-hamburger-menu {
-  mix-blend-mode: exclusion;
+.burger-menu {
   z-index: variables.$z-index-2;
-  position: fixed;
-  top: 0;
-  right: 0;
-  @include mixins.size(120px);
-  @include media(">desktop") {
-    display: none;
+  position: absolute;
+  top: variables.$spacing-6;
+  right: variables.$spacing-6;
+  overflow: hidden;
+  cursor: pointer;
+  @include mixins.size(60px);
+
+  &--dark {
+    .line {
+      background: variables.$white;
+    }
+  }
+  &--light {
+    .line {
+      background: variables.$black;
+    }
   }
 }
 
-.site-nav {
-  mix-blend-mode: exclusion;
-  z-index: variables.$z-index-2;
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-family: typography.$font-family-content-2;
-  @include media("<=desktop") {
-    display: none;
+.menu-border,
+.background,
+.menu-open,
+.menu-close {
+  @include mixins.absolute-full;
+}
+
+.menu-border {
+  z-index: 0;
+  .border {
+    opacity: 0.5;
+    position: absolute;
+    &:nth-child(1) {
+      top: 0;
+      background: #ff3000;
+    }
+    &:nth-child(2) {
+      right: 0;
+      background: linear-gradient(180deg, #ff3000, #ed0200, #ff096c, #d50082);
+    }
+    &:nth-child(3) {
+      bottom: 0;
+      background: #d50082;
+    }
+    &:nth-child(4) {
+      left: 0;
+      background: linear-gradient(180deg, #ff3000, #ed0200, #ff096c, #d50082);
+    }
+
+    &:nth-child(1),
+    &:nth-child(3) {
+      height: 1px;
+      left: 0;
+      right: 0;
+    }
+
+    &:nth-child(2),
+    &:nth-child(4) {
+      width: 1px;
+      top: 0;
+      bottom: 0;
+    }
+  }
+}
+
+.background {
+  z-index: 1;
+  .top,
+  .bottom {
+    @include mixins.absolute-full;
+    background: linear-gradient(180deg, #ff3000, #ed0200, #ff096c, #d50082);
   }
 
-  ul.nav-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    padding-top: variables.$spacing-6;
-    margin-right: variables.$spacing-9;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    & li.nav-list-item {
-      line-height: variables.$font-size-7;
-      display: flex;
-      margin: 0 variables.$spacing-2;
-      a {
-        color: variables.$white;
-        padding: 0 variables.$spacing-2;
-        text-decoration: none;
-        font-size: variables.$font-size-4;
+  .top {
+    opacity: 1;
+    transform: translateY(-100%);
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+
+  .bottom {
+    opacity: 1;
+    transform: translateY(100%);
+  }
+}
+
+.burger-menu:hover .background {
+  .top {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  .bottom {
+    opacity: 1;
+    transform: translateY(0);
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+  }
+}
+
+.menu-open {
+  z-index: 3;
+  .line-wrap {
+    overflow: hidden;
+    position: absolute;
+    height: 1px;
+    left: 21px;
+    width: 18px;
+    z-index: 1;
+    .line {
+      @include mixins.absolute-full;
+
+      &:after,
+      &:before {
+        @include mixins.absolute-full;
+        content: "";
+      }
+
+      /** to be used for hover */
+      &:before {
+        background: variables.$black;
+        transform: translateX(-100%);
+      }
+
+      /** to be used for dark */
+      &:after {
+        background: variables.$white;
+        transform: translateX(100%);
       }
     }
   }
+  .line-wrap:first-child {
+    top: 26px;
+  }
+  .line-wrap:nth-child(2) {
+    top: 30px;
+  }
+  .line-wrap:last-child {
+    top: 34px;
+  }
+}
+
+.menu-close {
+  z-index: 2;
 }

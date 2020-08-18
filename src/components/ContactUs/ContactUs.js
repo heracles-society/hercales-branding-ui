@@ -6,7 +6,7 @@ import RadioGroup from "@material-ui/core/RadioGroup"
 import TextField from "@material-ui/core/TextField"
 import SendIcon from "@material-ui/icons/Send"
 
-import HeaderPage from "../Homepage/Header"
+import HeaderPage from "../Navigation/Header"
 
 import * as constants from "../../constants.js"
 

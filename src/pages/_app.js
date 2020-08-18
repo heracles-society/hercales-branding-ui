@@ -2,7 +2,7 @@ import "../styles/main.scss"
 import { AnimatePresence, motion } from "framer-motion"
 import { useRouter } from "next/router"
 import { useState, useEffect } from "react"
-
+import { NavigationContextProvider } from "@contexts/navigation-context"
 const easing = [0.6, -0.05, 0.01, 0.99]
 const slideUp = {
   initial: {
@@ -68,7 +68,7 @@ function MyApp({ Component, pageProps }) {
   })
 
   return (
-    <>
+    <NavigationContextProvider>
       <div className="app">
         <AnimatePresence>{loading === false && <Component key="component" {...pageProps} />}</AnimatePresence>
       </div>
@@ -117,7 +117,7 @@ function MyApp({ Component, pageProps }) {
           </motion.div>
         )}
       </AnimatePresence>
-    </>
+    </NavigationContextProvider>
   )
 }
 

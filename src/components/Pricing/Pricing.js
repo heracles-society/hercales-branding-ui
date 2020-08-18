@@ -1,5 +1,5 @@
 import React, { useState } from "@components/Pricing/node_modules/react"
-import HeaderPage from "../Homepage/Header"
+import HeaderPage from "../Navigation/Header"
 import * as constants from "../../constants"
 
 export default function Pricing() {

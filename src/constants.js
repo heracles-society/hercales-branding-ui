@@ -1,6 +1,7 @@
 export const easingValues = {
   "ease-1": [0.6, 0.01, -0.05, 0.9],
   "ease-2": [0.43, 0.13, 0.23, 0.96],
+  "ease-3": [0.165, 0.84, 0.44, 1],
 }
 
 export const defaultTransition = {

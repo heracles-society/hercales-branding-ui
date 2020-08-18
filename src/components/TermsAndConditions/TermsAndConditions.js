@@ -1,4 +1,4 @@
-import HeaderPage from "../Homepage/Header"
+import HeaderPage from "../Navigation/Header"
 
 export default function TermsAndConditions() {
   return (

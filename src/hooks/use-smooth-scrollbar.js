@@ -31,7 +31,7 @@ function useSmoothScrollbar(ref, options = { initialValue: {}, debounceInterval:
     }
   }, [])
 
-  return [scrollStatus, scrollbar.current]
+  return [scrollStatus, scrollbar]
 }
 
 export default useSmoothScrollbar

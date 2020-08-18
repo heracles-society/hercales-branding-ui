@@ -27,7 +27,7 @@ export default function HomePage() {
   const [scaleImage, setScaleImage] = useState(1)
 
   useEffect(() => {
-    if (overlayRef.current && scrollbar && scrollbar.isVisible(overlayRef.current)) {
+    if (overlayRef.current && scrollbar.current && scrollbar.current.isVisible(overlayRef.current)) {
       const overlayRefOffsetY = overlayRef.current.clientHeight + overlayRef.current.offsetTop
       const newScale = transform(scrollStatus.offset.y, [0, overlayRefOffsetY], [1, 1.125])
       setScaleImage(newScale)
@@ -80,7 +80,7 @@ export default function HomePage() {
                 </div>
               </section>
               <BuilderIntro />
-              <HomeOwnerIntro />
+              <HomeOwnerIntro scrollRef={scrollbar.current} />
               <SecurityProviderIntro />
               <RenterIntro />
             </main>
