@@ -1,8 +1,10 @@
+import "intersection-observer"
 import "../styles/main.scss"
 import { AnimatePresence, motion } from "framer-motion"
 import { useRouter } from "next/router"
 import { useState, useEffect } from "react"
 import { NavigationContextProvider } from "@contexts/navigation-context"
+import MousePositionContextProvider from "@contexts/mouse-position-context"
 const easing = [0.6, -0.05, 0.01, 0.99]
 const slideUp = {
   initial: {
@@ -38,19 +40,18 @@ const slideDown = {
   },
 }
 
+function MyAppContextProviders(props) {
+  return (
+    <NavigationContextProvider>
+      <MousePositionContextProvider>{props.children}</MousePositionContextProvider>
+    </NavigationContextProvider>
+  )
+}
+
 function MyApp({ Component, pageProps }) {
   const router = useRouter()
   const [loading, setLoading] = useState(false)
   const [initialRenderComplete, setInitialRenderComplete] = useState(false)
-
-  useEffect(() => {
-    /**
-     * Do feature detection, to figure out which polyfills needs to be imported.
-     **/
-    if (typeof window.IntersectionObserver === "undefined") {
-      import("intersection-observer")
-    }
-  }, [])
 
   useEffect(() => {
     const handleStart = () => setLoading(true)
@@ -68,7 +69,7 @@ function MyApp({ Component, pageProps }) {
   })
 
   return (
-    <NavigationContextProvider>
+    <MyAppContextProviders>
       <div className="app">
         <AnimatePresence>{loading === false && <Component key="component" {...pageProps} />}</AnimatePresence>
       </div>
@@ -117,7 +118,7 @@ function MyApp({ Component, pageProps }) {
           </motion.div>
         )}
       </AnimatePresence>
-    </NavigationContextProvider>
+    </MyAppContextProviders>
   )
 }
 
