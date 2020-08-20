@@ -1,5 +1,5 @@
 import { useReducer, useEffect } from "react"
-import { motion, useAnimation } from "framer-motion"
+import { motion, useAnimation, AnimatePresence } from "framer-motion"
 import classNames from "classnames"
 
 import { useMousePosition } from "@hooks/use-mouse-position"
@@ -22,6 +22,11 @@ const navPositionsReducer = (state, action) => {
         ...state,
         hover: action.payload.hover,
       }
+    case "SET_MENU_STATE":
+      return {
+        ...state,
+        menuOpened: action.payload.open,
+      }
     case "SET_DATA":
       return {
         ...state,
@@ -37,12 +42,17 @@ export default function Header() {
   const navRef = useRef()
   const mousePos = useMousePosition()
   const [headerState, setHeaderState] = useReducer(navPositionsReducer, {
+    menuOpened: false,
     translateX: 0,
     translateY: 0,
     active: false,
     hover: false,
   })
   const animationControl = useAnimation()
+  const hoverAnimationControl = useAnimation()
+
+  const openMenu = useRef(() => setHeaderState({ type: "SET_MENU_STATE", payload: { open: true } }))
+  const closeMenu = useRef(() => setHeaderState({ type: "SET_MENU_STATE", payload: { open: false } }))
 
   useEffect(() => {
     const newHeaderState = {
@@ -66,26 +76,113 @@ export default function Header() {
     setHeaderState({ type: "SET_DATA", payload: { data: newHeaderState } })
   }, [mousePos.x, mousePos.y])
 
+  useEffect(() => {
+    hoverAnimationControl.stop()
+    if (headerState["hover"]) {
+      hoverAnimationControl.start("animate")
+    } else {
+      hoverAnimationControl.start("initial")
+    }
+  }, [headerState["hover"]])
+
   return (
     <motion.nav
       ref={navRef}
       initial={false}
       animate={animationControl}
       transition={{ ease: easingValues["ease-3"], duration: 0.6 }}
-      onHoverEnd={() => {
-        setHeaderState({ type: "SET_HOVER", payload: { hover: false } })
-      }}
-      onHoverStart={() => {
-        setHeaderState({ type: "SET_HOVER", payload: { hover: true } })
-      }}
+      onHoverEnd={() => setHeaderState({ type: "SET_HOVER", payload: { hover: false } })}
+      onHoverStart={() => setHeaderState({ type: "SET_HOVER", payload: { hover: true } })}
       className={classNames({
         [styles["burger-menu"]]: true,
         [styles["burger-menu--active"]]: headerState["active"],
         [styles["burger-menu--hover"]]: headerState["hover"],
       })}
     >
-      <div className={styles["open"]}></div>
-      <div className={styles["close"]}></div>
+      <AnimatePresence exitBeforeEnter>
+        {headerState["menuOpened"] === true ? (
+          <motion.div
+            key="menu--opened"
+            onClick={closeMenu.current}
+            className={classNames({
+              [styles["menu"]]: true,
+              [styles["menu--opened"]]: true,
+            })}
+            initial="initial"
+            animate="animate"
+            exit="initial"
+            variants={{ initial: { opacity: 0 }, animate: { opacity: 1 } }}
+            transition={{ duration: 0.2, staggerChildren: 0.2 }}
+          ></motion.div>
+        ) : (
+          <motion.div
+            key="menu--closed"
+            onClick={openMenu.current}
+            className={classNames({
+              [styles["menu"]]: true,
+              [styles["menu--closed"]]: true,
+            })}
+            initial="initial"
+            animate="animate"
+            exit="initial"
+            variants={{
+              initial: { opacity: 0.9, transition: { when: "afterChildren" } },
+              animate: { opacity: 1, transition: { when: "beforeChildren" } },
+            }}
+            transition={{ duration: 0.4, staggerChildren: 0.2 }}
+          >
+            <motion.div
+              className={styles["line-wrap"]}
+              initial="initial"
+              animate="animate"
+              exit="initial"
+              variants={{ initial: { scaleX: 0, transition: { when: "afterChildren" } }, animate: { scaleX: 1 } }}
+              transition={{ duration: 0.4, ease: easingValues["ease-3"] }}
+            >
+              <motion.div
+                initial="initial"
+                animate={hoverAnimationControl}
+                variants={{ initial: { x: "-100%" }, animate: { x: 0 } }}
+                transition={{ duration: 0.4, ease: easingValues["ease-3"] }}
+                className={styles["line"]}
+              ></motion.div>
+            </motion.div>
+            <motion.div
+              className={styles["line-wrap"]}
+              initial="initial"
+              animate="animate"
+              exit="initial"
+              variants={{ initial: { scaleX: 0, transition: { when: "afterChildren" } }, animate: { scaleX: 1 } }}
+              transition={{ duration: 0.4, ease: easingValues["ease-3"] }}
+            >
+              <motion.div
+                initial="initial"
+                animate={hoverAnimationControl}
+                variants={{ initial: { x: "-100%" }, animate: { x: 0 } }}
+                transition={{ delay: 0.1, duration: 0.4, ease: easingValues["ease-3"] }}
+                className={styles["line"]}
+              ></motion.div>
+            </motion.div>
+            <motion.div
+              className={styles["line-wrap"]}
+              initial="initial"
+              animate="animate"
+              exit="initial"
+              variants={{ initial: { scaleX: 0, transition: { when: "afterChildren" } }, animate: { scaleX: 1 } }}
+              transition={{ duration: 0.4, ease: easingValues["ease-3"] }}
+            >
+              <motion.div
+                initial="initial"
+                animate={hoverAnimationControl}
+                variants={{ initial: { x: "-100%" }, animate: { x: 0 } }}
+                transition={{ delay: 0.2, duration: 0.4, ease: easingValues["ease-3"] }}
+                className={styles["line"]}
+              ></motion.div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <svg className={styles["frame"]} height="100%" width="100%">
         <line x1="0" y1="0" x2="240" y2="0" />
         <line x1="60" y1="0" x2="60" y2="240" />
