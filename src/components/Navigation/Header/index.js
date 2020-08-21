@@ -51,8 +51,7 @@ export default function Header() {
   const animationControl = useAnimation()
   const hoverAnimationControl = useAnimation()
 
-  const openMenu = useRef(() => setHeaderState({ type: "SET_MENU_STATE", payload: { open: true } }))
-  const closeMenu = useRef(() => setHeaderState({ type: "SET_MENU_STATE", payload: { open: false } }))
+  const toggleMenu = () => setHeaderState({ type: "SET_MENU_STATE", payload: { open: !headerState["menuOpened"] } })
 
   useEffect(() => {
     const newHeaderState = {
@@ -70,8 +69,8 @@ export default function Header() {
       newHeaderState["active"] = true
     }
 
-    animationControl.stop()
-    animationControl.start({ translateX: newHeaderState["translateX"], translateY: newHeaderState["translateY"] })
+    // animationControl.stop()
+    // animationControl.start({ translateX: newHeaderState["translateX"], translateY: newHeaderState["translateY"] })
 
     setHeaderState({ type: "SET_DATA", payload: { data: newHeaderState } })
   }, [mousePos.x, mousePos.y])
@@ -87,6 +86,7 @@ export default function Header() {
 
   return (
     <motion.nav
+      onClick={toggleMenu}
       ref={navRef}
       initial={false}
       animate={animationControl}
@@ -103,21 +103,55 @@ export default function Header() {
         {headerState["menuOpened"] === true ? (
           <motion.div
             key="menu--opened"
-            onClick={closeMenu.current}
             className={classNames({
               [styles["menu"]]: true,
               [styles["menu--opened"]]: true,
             })}
-            initial="initial"
-            animate="animate"
-            exit="initial"
-            variants={{ initial: { opacity: 0 }, animate: { opacity: 1 } }}
-            transition={{ duration: 0.2, staggerChildren: 0.2 }}
-          ></motion.div>
+          >
+            <motion.div className={styles["line-wrap"]}>
+              <motion.div
+                className={classNames(styles["line"], styles["line--background"])}
+                initial="initial"
+                exit="exit"
+                animate="animate"
+                variants={{
+                  exit: { y: "100%" },
+                  initial: { y: "100%" },
+                  animate: { y: 0 },
+                }}
+                transition={{ delay: 0.2, duration: 0.4, ease: easingValues["ease-3"] }}
+              ></motion.div>
+              <motion.div
+                className={classNames(styles["line"], styles["line--foreground"])}
+                animate={hoverAnimationControl}
+                variants={{ initial: { y: "100%" }, animate: { y: 0 } }}
+                transition={{ delay: 0.2, duration: 0.2, ease: easingValues["ease-1"] }}
+              ></motion.div>
+            </motion.div>
+            <motion.div className={styles["line-wrap"]}>
+              <motion.div
+                className={classNames(styles["line"], styles["line--background"])}
+                initial="initial"
+                exit="exit"
+                animate="animate"
+                variants={{
+                  exit: { y: "100%" },
+                  initial: { y: "100%" },
+                  animate: { y: 0 },
+                }}
+                transition={{ delay: 0.2, duration: 0.4, ease: easingValues["ease-3"] }}
+              ></motion.div>
+              <motion.div
+                className={classNames(styles["line"], styles["line--foreground"])}
+                animate={hoverAnimationControl}
+                variants={{ initial: { y: "100%" }, animate: { y: 0 } }}
+                transition={{ delay: 0.2, duration: 0.2, ease: easingValues["ease-1"] }}
+              ></motion.div>
+            </motion.div>
+          </motion.div>
         ) : (
           <motion.div
             key="menu--closed"
-            onClick={openMenu.current}
             className={classNames({
               [styles["menu"]]: true,
               [styles["menu--closed"]]: true,

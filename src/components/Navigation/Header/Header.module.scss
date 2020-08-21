@@ -22,6 +22,7 @@
   .menu {
     z-index: 2;
     @include mixins.absolute-full;
+
     &--closed {
       .line-wrap {
         position: absolute;
@@ -44,6 +45,38 @@
         .line-wrap:nth-child(#{$i + 1}) {
           top: 26px + ($i * 4);
         }
+      }
+    }
+
+    &--opened {
+      .line-wrap {
+        height: 18px;
+        width: 1px;
+        left: 30px;
+        top: 21px;
+        position: absolute;
+        overflow: hidden;
+        transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        .line {
+          @include mixins.absolute-full;
+          transform-origin: center;
+          backface-visibility: hidden;
+        }
+        .line--background {
+          z-index: 0;
+          background-color: black;
+        }
+        .line--foreground {
+          z-index: 1;
+          background-color: color.$black-5;
+        }
+      }
+
+      .line-wrap:first-child {
+        transform: rotate(-45deg);
+      }
+      .line-wrap:nth-child(2) {
+        transform: rotate(45deg);
       }
     }
   }
@@ -81,13 +114,6 @@
 
   &:hover,
   &--hover {
-    .menu {
-      &--closed {
-        .line-wrap {
-          transform: scale(1);
-        }
-      }
-    }
     .frame {
       line {
         stroke-width: 10;
