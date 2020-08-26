@@ -1,11 +1,6 @@
-import { useReducer, useEffect } from "react"
-import { motion, useAnimation, AnimatePresence } from "framer-motion"
+import { useReducer, useRef, useEffect, useState } from "react"
+import { motion, AnimatePresence, useAnimation } from "framer-motion"
 import classNames from "classnames"
-
-import { useMousePosition } from "@hooks/use-mouse-position"
-import { easingValues } from "@constants"
-import { useRef } from "react"
-
 import styles from "./Header.module.scss"
 
 const distance = (x1, y1, x2, y2) => {
@@ -38,6 +33,63 @@ const navPositionsReducer = (state, action) => {
   }
 }
 
+const lineBackgroundVariant = {
+  initial: ({ direction }) => ({
+    [direction]: "18px",
+  }),
+  animate: ({ idx: i, direction }) => ({
+    [direction]: "0px",
+    transition: {
+      delay: 0.1 * i,
+      duration: 0.6,
+      ease: [0.95, 0.05, 0.795, 0.035],
+    },
+  }),
+  exit: ({ idx: i, direction }) => ({
+    [direction]: "18px",
+    transition: {
+      delay: 0.1 * i,
+      duration: 0.6,
+      when: "afterChildren",
+      delayChildren: 0.2,
+      ease: [0.95, 0.05, 0.795, 0.035],
+    },
+  }),
+}
+
+const lineForegroundVariant = {
+  exit: ({ direction }) => ({
+    [direction]: "18px",
+    transition: {
+      ease: [0.95, 0.05, 0.795, 0.035],
+    },
+  }),
+}
+
+const useMousePosition = () => {
+  const [state, setState] = useState({
+    screenX: NaN,
+    screenY: NaN,
+    clientX: NaN,
+    clientY: NaN,
+    pageX: NaN,
+    pageY: NaN,
+  })
+
+  useEffect(() => {
+    const moveHandler = (event) => {
+      const { screenX, screenY, clientX, clientY, pageX, pageY } = event
+      setState({ screenX, screenY, clientX, clientY, pageX, pageY })
+    }
+    document.addEventListener("mousemove", moveHandler)
+    return () => {
+      document.removeEventListener("mousemove", moveHandler)
+    }
+  }, [])
+
+  return state
+}
+
 export default function Header() {
   const navRef = useRef()
   const mousePos = useMousePosition()
@@ -48,8 +100,8 @@ export default function Header() {
     active: false,
     hover: false,
   })
+
   const animationControl = useAnimation()
-  const hoverAnimationControl = useAnimation()
 
   const toggleMenu = () => setHeaderState({ type: "SET_MENU_STATE", payload: { open: !headerState["menuOpened"] } })
 
@@ -61,157 +113,111 @@ export default function Header() {
     }
     const rect = navRef.current.getBoundingClientRect()
     // calculate the distance from the mouse to the center of the button
-    const distanceMouseButton = distance(mousePos.x, mousePos.y, rect.left + rect.width / 2, rect.top + rect.height / 2)
+    const distanceMouseButton = distance(
+      mousePos.pageX,
+      mousePos.pageY,
+      rect.left + rect.width / 2,
+      rect.top + rect.height / 2,
+    )
     // new values for the translations
     if (distanceMouseButton < rect.width * 2) {
-      newHeaderState["translateX"] = (mousePos.x - (rect.left + rect.width / 2)) * 0.3
-      newHeaderState["translateY"] = (mousePos.y - (rect.top + rect.height / 2)) * 0.3
+      newHeaderState["translateX"] = (mousePos.pageX - (rect.left + rect.width / 2)) * 0.3
+      newHeaderState["translateY"] = (mousePos.pageY - (rect.top + rect.height / 2)) * 0.3
       newHeaderState["active"] = true
     }
 
-    // animationControl.stop()
-    // animationControl.start({ translateX: newHeaderState["translateX"], translateY: newHeaderState["translateY"] })
+    animationControl.stop()
+    animationControl.start({ translateX: newHeaderState["translateX"], translateY: newHeaderState["translateY"] })
 
     setHeaderState({ type: "SET_DATA", payload: { data: newHeaderState } })
-  }, [mousePos.x, mousePos.y])
-
-  useEffect(() => {
-    hoverAnimationControl.stop()
-    if (headerState["hover"]) {
-      hoverAnimationControl.start("animate")
-    } else {
-      hoverAnimationControl.start("initial")
-    }
-  }, [headerState["hover"]])
+  }, [mousePos.pageX, mousePos.pageY])
 
   return (
     <motion.nav
       onClick={toggleMenu}
       ref={navRef}
-      initial={false}
       animate={animationControl}
-      transition={{ ease: easingValues["ease-3"], duration: 0.6 }}
-      onHoverEnd={() => setHeaderState({ type: "SET_HOVER", payload: { hover: false } })}
-      onHoverStart={() => setHeaderState({ type: "SET_HOVER", payload: { hover: true } })}
       className={classNames({
         [styles["burger-menu"]]: true,
         [styles["burger-menu--active"]]: headerState["active"],
-        [styles["burger-menu--hover"]]: headerState["hover"],
       })}
     >
       <AnimatePresence exitBeforeEnter>
         {headerState["menuOpened"] === true ? (
           <motion.div
             key="menu--opened"
-            className={classNames({
-              [styles["menu"]]: true,
-              [styles["menu--opened"]]: true,
-            })}
+            className={classNames(styles["menu"], styles["menu--opened"])}
+            animate="animate"
+            initial="initial"
+            exit="exit"
+            whileHover="hover"
           >
-            <motion.div className={styles["line-wrap"]}>
+            <motion.div className={styles["line"]}>
               <motion.div
-                className={classNames(styles["line"], styles["line--background"])}
-                initial="initial"
-                exit="exit"
-                animate="animate"
-                variants={{
-                  exit: { y: "100%" },
-                  initial: { y: "100%" },
-                  animate: { y: 0 },
-                }}
-                transition={{ delay: 0.2, duration: 0.4, ease: easingValues["ease-3"] }}
-              ></motion.div>
-              <motion.div
-                className={classNames(styles["line"], styles["line--foreground"])}
-                animate={hoverAnimationControl}
-                variants={{ initial: { y: "100%" }, animate: { y: 0 } }}
-                transition={{ delay: 0.2, duration: 0.2, ease: easingValues["ease-1"] }}
-              ></motion.div>
+                custom={{ idx: 0, direction: "y" }}
+                variants={lineBackgroundVariant}
+                className={styles["line--background"]}
+              >
+                <motion.div custom={{ direction: "y" }} className={styles["line--foreground"]}></motion.div>
+              </motion.div>
             </motion.div>
-            <motion.div className={styles["line-wrap"]}>
+            <motion.div className={styles["line"]}>
               <motion.div
-                className={classNames(styles["line"], styles["line--background"])}
-                initial="initial"
-                exit="exit"
-                animate="animate"
-                variants={{
-                  exit: { y: "100%" },
-                  initial: { y: "100%" },
-                  animate: { y: 0 },
-                }}
-                transition={{ delay: 0.2, duration: 0.4, ease: easingValues["ease-3"] }}
-              ></motion.div>
-              <motion.div
-                className={classNames(styles["line"], styles["line--foreground"])}
-                animate={hoverAnimationControl}
-                variants={{ initial: { y: "100%" }, animate: { y: 0 } }}
-                transition={{ delay: 0.2, duration: 0.2, ease: easingValues["ease-1"] }}
-              ></motion.div>
+                custom={{ idx: 1, direction: "y" }}
+                variants={lineBackgroundVariant}
+                className={styles["line--background"]}
+              >
+                <motion.div custom={{ direction: "y" }} className={styles["line--foreground"]}></motion.div>
+              </motion.div>
             </motion.div>
           </motion.div>
         ) : (
           <motion.div
             key="menu--closed"
-            className={classNames({
-              [styles["menu"]]: true,
-              [styles["menu--closed"]]: true,
-            })}
-            initial="initial"
+            className={classNames(styles["menu"], styles["menu--closed"])}
             animate="animate"
-            exit="initial"
-            variants={{
-              initial: { opacity: 0.9, transition: { when: "afterChildren" } },
-              animate: { opacity: 1, transition: { when: "beforeChildren" } },
-            }}
-            transition={{ duration: 0.4, staggerChildren: 0.2 }}
+            initial="initial"
+            exit="exit"
+            whileHover="hover"
           >
-            <motion.div
-              className={styles["line-wrap"]}
-              initial="initial"
-              animate="animate"
-              exit="initial"
-              variants={{ initial: { scaleX: 0, transition: { when: "afterChildren" } }, animate: { scaleX: 1 } }}
-              transition={{ duration: 0.4, ease: easingValues["ease-3"] }}
-            >
+            <motion.div className={styles["line"]}>
               <motion.div
-                initial="initial"
-                animate={hoverAnimationControl}
-                variants={{ initial: { x: "-100%" }, animate: { x: 0 } }}
-                transition={{ duration: 0.4, ease: easingValues["ease-3"] }}
-                className={styles["line"]}
-              ></motion.div>
+                custom={{ idx: 0, direction: "x" }}
+                variants={lineBackgroundVariant}
+                className={styles["line--background"]}
+              >
+                <motion.div
+                  custom={{ direction: "x" }}
+                  variants={lineForegroundVariant}
+                  className={styles["line--foreground"]}
+                ></motion.div>
+              </motion.div>
             </motion.div>
-            <motion.div
-              className={styles["line-wrap"]}
-              initial="initial"
-              animate="animate"
-              exit="initial"
-              variants={{ initial: { scaleX: 0, transition: { when: "afterChildren" } }, animate: { scaleX: 1 } }}
-              transition={{ duration: 0.4, ease: easingValues["ease-3"] }}
-            >
+            <motion.div className={styles["line"]}>
               <motion.div
-                initial="initial"
-                animate={hoverAnimationControl}
-                variants={{ initial: { x: "-100%" }, animate: { x: 0 } }}
-                transition={{ delay: 0.1, duration: 0.4, ease: easingValues["ease-3"] }}
-                className={styles["line"]}
-              ></motion.div>
+                custom={{ idx: 1, direction: "x" }}
+                variants={lineBackgroundVariant}
+                className={styles["line--background"]}
+              >
+                <motion.div
+                  custom={{ direction: "x" }}
+                  variants={lineForegroundVariant}
+                  className={styles["line--foreground"]}
+                ></motion.div>
+              </motion.div>
             </motion.div>
-            <motion.div
-              className={styles["line-wrap"]}
-              initial="initial"
-              animate="animate"
-              exit="initial"
-              variants={{ initial: { scaleX: 0, transition: { when: "afterChildren" } }, animate: { scaleX: 1 } }}
-              transition={{ duration: 0.4, ease: easingValues["ease-3"] }}
-            >
+            <motion.div className={styles["line"]}>
               <motion.div
-                initial="initial"
-                animate={hoverAnimationControl}
-                variants={{ initial: { x: "-100%" }, animate: { x: 0 } }}
-                transition={{ delay: 0.2, duration: 0.4, ease: easingValues["ease-3"] }}
-                className={styles["line"]}
-              ></motion.div>
+                custom={{ idx: 2, direction: "x" }}
+                variants={lineBackgroundVariant}
+                className={styles["line--background"]}
+              >
+                <motion.div
+                  custom={{ direction: "x" }}
+                  variants={lineForegroundVariant}
+                  className={styles["line--foreground"]}
+                ></motion.div>
+              </motion.div>
             </motion.div>
           </motion.div>
         )}

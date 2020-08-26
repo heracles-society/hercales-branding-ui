@@ -4,7 +4,6 @@ import { AnimatePresence, motion } from "framer-motion"
 import { useRouter } from "next/router"
 import { useState, useEffect } from "react"
 import { NavigationContextProvider } from "@contexts/navigation-context"
-import MousePositionContextProvider from "@contexts/mouse-position-context"
 const easing = [0.6, -0.05, 0.01, 0.99]
 const slideUp = {
   initial: {
@@ -41,11 +40,7 @@ const slideDown = {
 }
 
 function MyAppContextProviders(props) {
-  return (
-    <NavigationContextProvider>
-      <MousePositionContextProvider>{props.children}</MousePositionContextProvider>
-    </NavigationContextProvider>
-  )
+  return <NavigationContextProvider>{props.children}</NavigationContextProvider>
 }
 
 function MyApp({ Component, pageProps }) {

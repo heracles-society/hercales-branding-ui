@@ -47,7 +47,6 @@ export default function ForHomeOwnersPage(props) {
   }, [inView])
 
   useEffect(() => {
-    console.log(isOverlaping)
     dispatchNavEvent({
       type: "SET_THEME",
       payload: {
