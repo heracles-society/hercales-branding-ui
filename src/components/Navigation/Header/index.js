@@ -133,102 +133,121 @@ export default function Header() {
   }, [mousePos.pageX, mousePos.pageY])
 
   return (
-    <motion.nav
-      onClick={toggleMenu}
-      ref={navRef}
-      animate={animationControl}
-      className={classNames({
-        [styles["burger-menu"]]: true,
-        [styles["burger-menu--active"]]: headerState["active"],
-      })}
-    >
-      <AnimatePresence exitBeforeEnter>
-        {headerState["menuOpened"] === true ? (
-          <motion.div
-            key="menu--opened"
-            className={classNames(styles["menu"], styles["menu--opened"])}
-            animate="animate"
-            initial="initial"
-            exit="exit"
-            whileHover="hover"
-          >
-            <motion.div className={styles["line"]}>
-              <motion.div
-                custom={{ idx: 0, direction: "y" }}
-                variants={lineBackgroundVariant}
-                className={styles["line--background"]}
-              >
-                <motion.div custom={{ direction: "y" }} className={styles["line--foreground"]}></motion.div>
-              </motion.div>
-            </motion.div>
-            <motion.div className={styles["line"]}>
-              <motion.div
-                custom={{ idx: 1, direction: "y" }}
-                variants={lineBackgroundVariant}
-                className={styles["line--background"]}
-              >
-                <motion.div custom={{ direction: "y" }} className={styles["line--foreground"]}></motion.div>
-              </motion.div>
-            </motion.div>
-          </motion.div>
-        ) : (
-          <motion.div
-            key="menu--closed"
-            className={classNames(styles["menu"], styles["menu--closed"])}
-            animate="animate"
-            initial="initial"
-            exit="exit"
-            whileHover="hover"
-          >
-            <motion.div className={styles["line"]}>
-              <motion.div
-                custom={{ idx: 0, direction: "x" }}
-                variants={lineBackgroundVariant}
-                className={styles["line--background"]}
-              >
+    <motion.header>
+      <motion.nav
+        onClick={toggleMenu}
+        ref={navRef}
+        animate={animationControl}
+        className={classNames({
+          [styles["burger-menu"]]: true,
+          [styles["burger-menu--active"]]: headerState["active"],
+        })}
+      >
+        <AnimatePresence exitBeforeEnter>
+          {headerState["menuOpened"] === true ? (
+            <motion.div
+              key="menu--opened"
+              className={classNames(styles["menu"], styles["menu--opened"])}
+              animate="animate"
+              initial="initial"
+              exit="exit"
+              whileHover="hover"
+            >
+              <motion.div className={styles["line"]}>
                 <motion.div
-                  custom={{ direction: "x" }}
-                  variants={lineForegroundVariant}
-                  className={styles["line--foreground"]}
-                ></motion.div>
+                  custom={{ idx: 0, direction: "y" }}
+                  variants={lineBackgroundVariant}
+                  className={styles["line--background"]}
+                >
+                  <motion.div custom={{ direction: "y" }} className={styles["line--foreground"]}></motion.div>
+                </motion.div>
               </motion.div>
-            </motion.div>
-            <motion.div className={styles["line"]}>
-              <motion.div
-                custom={{ idx: 1, direction: "x" }}
-                variants={lineBackgroundVariant}
-                className={styles["line--background"]}
-              >
+              <motion.div className={styles["line"]}>
                 <motion.div
-                  custom={{ direction: "x" }}
-                  variants={lineForegroundVariant}
-                  className={styles["line--foreground"]}
-                ></motion.div>
+                  custom={{ idx: 1, direction: "y" }}
+                  variants={lineBackgroundVariant}
+                  className={styles["line--background"]}
+                >
+                  <motion.div custom={{ direction: "y" }} className={styles["line--foreground"]}></motion.div>
+                </motion.div>
               </motion.div>
             </motion.div>
-            <motion.div className={styles["line"]}>
-              <motion.div
-                custom={{ idx: 2, direction: "x" }}
-                variants={lineBackgroundVariant}
-                className={styles["line--background"]}
-              >
+          ) : (
+            <motion.div
+              key="menu--closed"
+              className={classNames(styles["menu"], styles["menu--closed"])}
+              animate="animate"
+              initial="initial"
+              exit="exit"
+              whileHover="hover"
+            >
+              <motion.div className={styles["line"]}>
                 <motion.div
-                  custom={{ direction: "x" }}
-                  variants={lineForegroundVariant}
-                  className={styles["line--foreground"]}
-                ></motion.div>
+                  custom={{ idx: 0, direction: "x" }}
+                  variants={lineBackgroundVariant}
+                  className={styles["line--background"]}
+                >
+                  <motion.div
+                    custom={{ direction: "x" }}
+                    variants={lineForegroundVariant}
+                    className={styles["line--foreground"]}
+                  ></motion.div>
+                </motion.div>
+              </motion.div>
+              <motion.div className={styles["line"]}>
+                <motion.div
+                  custom={{ idx: 1, direction: "x" }}
+                  variants={lineBackgroundVariant}
+                  className={styles["line--background"]}
+                >
+                  <motion.div
+                    custom={{ direction: "x" }}
+                    variants={lineForegroundVariant}
+                    className={styles["line--foreground"]}
+                  ></motion.div>
+                </motion.div>
+              </motion.div>
+              <motion.div className={styles["line"]}>
+                <motion.div
+                  custom={{ idx: 2, direction: "x" }}
+                  variants={lineBackgroundVariant}
+                  className={styles["line--background"]}
+                >
+                  <motion.div
+                    custom={{ direction: "x" }}
+                    variants={lineForegroundVariant}
+                    className={styles["line--foreground"]}
+                  ></motion.div>
+                </motion.div>
               </motion.div>
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          )}
+        </AnimatePresence>
 
-      <svg className={styles["frame"]} height="100%" width="100%">
-        <line x1="0" y1="0" x2="240" y2="0" />
-        <line x1="60" y1="0" x2="60" y2="240" />
-        <line x1="60" y1="60" x2="-180" y2="60" />
-        <line x1="0" y1="60" x2="0" y2="-180" />
-      </svg>
-    </motion.nav>
+        <svg className={styles["frame"]} height="100%" width="100%">
+          <line x1="0" y1="0" x2="240" y2="0" />
+          <line x1="60" y1="0" x2="60" y2="240" />
+          <line x1="60" y1="60" x2="-180" y2="60" />
+          <line x1="0" y1="60" x2="0" y2="-180" />
+        </svg>
+      </motion.nav>
+      {
+        <AnimatePresence>
+          {headerState["menuOpened"] === true && (
+            <motion.section>
+              <motion.nav>
+                <motion.ul>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                  <li></li>
+                </motion.ul>
+              </motion.nav>
+            </motion.section>
+          )}
+        </AnimatePresence>
+      }
+    </motion.header>
   )
 }
