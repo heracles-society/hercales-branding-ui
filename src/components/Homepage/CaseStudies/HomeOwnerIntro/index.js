@@ -7,6 +7,8 @@ import * as constants from "@constants"
 import { useEffect, useContext, useRef } from "react"
 import { navigationContext } from "contexts/navigation-context"
 import useOverlapObserver from "@hooks/use-overlap-observer"
+import { ReactComponent as MemphisClippedCircle } from "@images/SVG/memphis-clipped-circle.svg"
+import { ReactComponent as MemphisBarbedFence } from "@images/SVG/memphis-barbed-fence.svg"
 
 const forOwnersBackgroundImage = require("@images/for-owners-image.jpg?placeholder=true&resize&format=webp")
 
@@ -131,6 +133,14 @@ export default function ForHomeOwnersPage(props) {
             </Link>
           </div>
         </article>
+        <div className={styles["memphis-background-wrapper"]}>
+          <div className={styles["memphis-clipped-circle"]}>
+            <MemphisClippedCircle />
+          </div>
+          <div className={styles["memphis-barbed-fence"]}>
+            <MemphisBarbedFence />
+          </div>
+        </div>
       </motion.div>
     </motion.section>
   )

@@ -218,3 +218,20 @@
     }
   }
 }
+
+.memphis-background-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  @include mixins.size(100%);
+  @include media("<=tablet") {
+    display: none;
+  }
+
+  .memphis-river-on-rock {
+    position: absolute;
+    left: 50px;
+    bottom: 0px;
+    @include mixins.size(500px);
+  }
+}

@@ -5,6 +5,8 @@ import * as constants from "../../../../constants"
 import styles from "./SecurityProvisionIntro.module.scss"
 import { useInView } from "react-intersection-observer"
 import { useEffect } from "react"
+import { ReactComponent as MemphisHillFence } from "@images/SVG/memphis-hill-fence.svg"
+import { ReactComponent as MemphisHill } from "@images/SVG/memphis-hill.svg"
 
 const forSecurityBackgroundImage = require("@images/for-security.jpeg?placeholder=true&resize&format=webp")
 
@@ -119,6 +121,14 @@ export default function SecurityProvisionIntro() {
               )}
             </ProgressiveImage>
           </motion.picture>
+        </div>
+      </div>
+      <div className={styles["memphis-background-wrapper"]}>
+        <div className={styles["memphis-hill-fence"]}>
+          <MemphisHillFence />
+        </div>
+        <div className={styles["memphis-hill"]}>
+          <MemphisHill />
         </div>
       </div>
     </motion.section>

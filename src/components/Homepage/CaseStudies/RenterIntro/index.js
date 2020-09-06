@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import * as constants from "@constants"
 import styles from "./RenterIntro.module.scss"
+import { ReactComponent as MemphisRiverOnRock } from "@images/SVG/memphis-river-on-rock.svg"
 
 export default function RenterIntro() {
   const [svgDurations] = useState({
@@ -76,6 +77,11 @@ export default function RenterIntro() {
           </motion.svg>
         </div>
       </section>
+      <div className={styles["memphis-background-wrapper"]}>
+        <div className={styles["memphis-river-on-rock"]}>
+          <MemphisRiverOnRock />
+        </div>
+      </div>
     </motion.div>
   )
 }

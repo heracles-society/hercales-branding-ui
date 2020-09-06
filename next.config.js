@@ -33,4 +33,17 @@ if (process.env.NODE_ENV === "production") {
   ])
 }
 
-module.exports = withPlugins([...plugins])
+module.exports = withPlugins([...plugins], {
+  webpack: (config) => {
+    // modify the `config` here
+    config.module.rules.unshift({
+      test: /\.svg$/,
+      issuer: {
+        test: /\.(js|ts)x?$/,
+      },
+      use: ["@svgr/webpack"],
+    })
+
+    return config
+  },
+})

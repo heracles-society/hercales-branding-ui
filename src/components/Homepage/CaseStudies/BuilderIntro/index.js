@@ -7,6 +7,7 @@ import * as constants from "@constants"
 import { useInView } from "react-intersection-observer"
 import { useEffect } from "react"
 
+import { ReactComponent as MemphisTriangle } from "@images/SVG/memphis-triangle.svg"
 const forBuilderBackgroundImage = require("@images/for-builders-image.jpg?placeholder=true&resize&format=webp")
 
 const textRevealVariants = {
@@ -124,6 +125,11 @@ export default function ForBuildersPage() {
               )}
             </ProgressiveImage>
           </motion.picture>
+        </div>
+        <div className={styles["memphis-background-wrapper"]}>
+          <div className={styles["memphis-triangle"]}>
+            <MemphisTriangle />
+          </div>
         </div>
       </div>
     </motion.section>

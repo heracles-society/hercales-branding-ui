@@ -194,3 +194,21 @@
     object-position: 50% 50%;
   }
 }
+.memphis-background-wrapper {
+  position: absolute;
+  z-index: -2;
+  top: 0;
+  left: 0;
+  @include mixins.size(100%);
+  @include media("<=tablet") {
+    display: none;
+  }
+
+  .memphis-triangle {
+    position: absolute;
+    bottom: -300px;
+    right: 100px;
+    height: 300px;
+    width: 300px;
+  }
+}

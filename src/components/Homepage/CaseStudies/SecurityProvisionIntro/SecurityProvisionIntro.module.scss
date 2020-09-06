@@ -194,3 +194,27 @@
     object-position: 50% 50%;
   }
 }
+
+.memphis-background-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  @include mixins.size(100%);
+  @include media("<=tablet") {
+    display: none;
+  }
+
+  .memphis-hill {
+    position: absolute;
+    left: 30%;
+    bottom: -250px;
+    @include mixins.size(200px);
+  }
+
+  .memphis-hill-fence {
+    position: absolute;
+    right: 200px;
+    bottom: -100px;
+    @include mixins.size(250px);
+  }
+}

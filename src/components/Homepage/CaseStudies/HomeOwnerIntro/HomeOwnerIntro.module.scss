@@ -225,3 +225,26 @@
     object-position: left;
   }
 }
+.memphis-background-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  @include mixins.size(100%);
+  @include media("<=tablet") {
+    display: none;
+  }
+
+  .memphis-clipped-circle {
+    position: absolute;
+    right: 50px;
+    bottom: -150px;
+    @include mixins.size(400px);
+  }
+
+  .memphis-barbed-fence {
+    position: absolute;
+    top: -60px;
+    left: 250px;
+    @include mixins.size(250px);
+  }
+}
