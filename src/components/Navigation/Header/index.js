@@ -2,6 +2,8 @@ import { useReducer, useRef, useEffect, useState } from "react"
 import { motion, AnimatePresence, useAnimation } from "framer-motion"
 import classNames from "classnames"
 import styles from "./Header.module.scss"
+import Link from "next/link"
+import { easingValues } from "@constants"
 
 const distance = (x1, y1, x2, y2) => {
   var a = x1 - x2
@@ -64,6 +66,57 @@ const lineForegroundVariant = {
       ease: [0.95, 0.05, 0.795, 0.035],
     },
   }),
+}
+
+const slideUp = {
+  initial: {
+    transform: "translateY(120px)",
+    opacity: 0,
+    transition: {
+      duration: 1,
+      ease: easingValues["ease-1"],
+    },
+  },
+  exit: {
+    transform: "translateY(120px)",
+    opacity: 0,
+    transition: {
+      duration: 1,
+      ease: easingValues["ease-1"],
+    },
+  },
+  animate: {
+    transform: "translateY(0%)",
+    opacity: 1,
+    transition: {
+      duration: 1,
+      ease: easingValues["ease-1"],
+    },
+  },
+}
+
+const slideDown = {
+  initial: {
+    transform: "translateY(-100%)",
+    transition: {
+      duration: 0.45,
+      ease: [0.95, 0.05, 0.795, 0.035],
+    },
+  },
+  exit: {
+    transform: "translateY(-100%)",
+    transition: {
+      duration: 0.45,
+      ease: [0.95, 0.05, 0.795, 0.035],
+    },
+  },
+  animate: {
+    transform: "translateY(0%)",
+    transition: {
+      duration: 0.45,
+      ease: [0.95, 0.05, 0.795, 0.035],
+    },
+  },
 }
 
 const useMousePosition = () => {
@@ -135,9 +188,9 @@ export default function Header() {
   return (
     <motion.header>
       <motion.nav
+        animate={animationControl}
         onClick={toggleMenu}
         ref={navRef}
-        animate={animationControl}
         className={classNames({
           [styles["burger-menu"]]: true,
           [styles["burger-menu--active"]]: headerState["active"],
@@ -231,23 +284,105 @@ export default function Header() {
           <line x1="0" y1="60" x2="0" y2="-180" />
         </svg>
       </motion.nav>
-      {
-        <AnimatePresence>
-          {headerState["menuOpened"] === true && (
-            <motion.section>
-              <motion.nav>
-                <motion.ul>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                  <li></li>
-                </motion.ul>
-              </motion.nav>
-            </motion.section>
-          )}
-        </AnimatePresence>
-      }
+      <AnimatePresence>
+        {headerState["menuOpened"] === true && (
+          <motion.section
+            className={styles["section--site-nav"]}
+            key="nav--menu-opened"
+            animate="animate"
+            initial="initial"
+            exit="exit"
+            variants={{
+              ...slideDown,
+              animate: {
+                transform: "translateY(0%)",
+                transition: {
+                  delayChildren: 0.15,
+                  duration: 0.45,
+                  ease: [0.95, 0.05, 0.795, 0.035],
+                },
+              },
+            }}
+          >
+            <motion.nav
+              className={styles["site-nav"]}
+              variants={{
+                ...slideDown,
+                animate: {
+                  transform: "translateY(0%)",
+                  transition: {
+                    delayChildren: 1,
+                    staggerChildren: 0.15,
+                    duration: 0.45,
+                    ease: [0.95, 0.05, 0.795, 0.035],
+                  },
+                },
+              }}
+            >
+              <motion.ul
+                className={styles["nav--links"]}
+                initial="initial"
+                animate="animate"
+                variants={{
+                  ...slideUp,
+                  animate: {
+                    opacity: 1,
+                    transform: "translateY(0%)",
+                    transition: {
+                      staggerChildren: 0.15,
+                      duration: 0.15,
+                      ease: [0.95, 0.05, 0.795, 0.035],
+                    },
+                  },
+                }}
+              >
+                <motion.li variants={slideUp}>
+                  <Link href="/" prefetch={false}>
+                    <a data-content="Home">Home</a>
+                  </Link>
+                </motion.li>
+                <motion.li variants={slideUp}>
+                  <Link href="/about-us" prefetch={false}>
+                    <a data-content="About us">About us</a>
+                  </Link>
+                </motion.li>
+                <motion.li variants={slideUp}>
+                  <Link href="/why-us" prefetch={false}>
+                    <a data-content="Why us">Why us</a>
+                  </Link>
+                </motion.li>
+                <motion.li variants={slideUp}>
+                  <Link href="/service" prefetch={false}>
+                    <a data-content="Services">Services</a>
+                  </Link>
+                </motion.li>
+                <motion.li variants={slideUp}>
+                  <Link href="/pricing" prefetch={false}>
+                    <a data-content="Pricing">Pricing</a>
+                  </Link>
+                </motion.li>
+                <motion.li variants={slideUp}>
+                  <Link href="/contact-us" prefetch={false}>
+                    <a data-content="Contact Us">Contact Us</a>
+                  </Link>
+                </motion.li>
+                <motion.li variants={slideUp}>
+                  <Link href="/contact-us" prefetch={false}>
+                    <a data-content="Request Demo">Request Demo</a>
+                  </Link>
+                </motion.li>
+              </motion.ul>
+              <motion.div className={styles["nav--details"]} variants={slideUp}>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae voluptatibus saepe voluptatem!
+                  Modi neque, nulla ad aperiam accusamus minima cupiditate, ex error voluptate, similique at doloremque
+                  quis totam eos sit.
+                </p>
+              </motion.div>
+            </motion.nav>
+          </motion.section>
+        )}
+      </AnimatePresence>
     </motion.header>
   )
 }
